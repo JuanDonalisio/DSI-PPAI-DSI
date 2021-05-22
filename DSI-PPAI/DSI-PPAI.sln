@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1500
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSI-PPAI", "DSI-PPAI\DSI-PPAI.csproj", "{A1001D36-4966-438B-BBEE-CA0F9C91CD20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1001D36-4966-438B-BBEE-CA0F9C91CD20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1001D36-4966-438B-BBEE-CA0F9C91CD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1001D36-4966-438B-BBEE-CA0F9C91CD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1001D36-4966-438B-BBEE-CA0F9C91CD20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {788EE63C-684E-426D-879D-B74001421373}
+	EndGlobalSection
+EndGlobal

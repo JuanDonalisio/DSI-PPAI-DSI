@@ -10,3 +10,15 @@ C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe.config
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.pdb
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\Bunifu_UI_v1.52.dll
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Login.resources
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Properties.Resources.resources
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.GenerateResource.cache
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CoreCompileInputs.cache
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
+D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb

@@ -48,6 +48,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\DetalleExposicion.cs" />
+    <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\Entrada.cs" />
+    <Compile Include="Clases\Exposicion.cs" />
+    <Compile Include="Clases\GestorRegistrarVenta.cs" />
+    <Compile Include="Clases\ImpresorEntradas.cs" />
+    <Compile Include="Clases\Obra.cs" />
+    <Compile Include="Clases\PantallaEntrada.cs" />
+    <Compile Include="Clases\PantallaRegistrarVenta.cs" />
+    <Compile Include="Clases\PantallaSala.cs" />
+    <Compile Include="Clases\ReservaVisita.cs" />
+    <Compile Include="Clases\Sede.cs" />
+    <Compile Include="Clases\Sesion.cs" />
+    <Compile Include="Clases\Tarifa.cs" />
+    <Compile Include="Clases\TipoEntrada.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DBconection\Acceso_Datos.cs" />
     <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,9 +114,12 @@
   <ItemGroup>
     <None Include="Resources\Museum image.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Clases\" />
-    <Folder Include="DBconection\" />
+    <None Include="Resources\novistoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vistoo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

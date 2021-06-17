@@ -8,5 +8,15 @@ namespace DSI_PPAI.Clases
 {
     class Sede
     {
+        private string nombre;
+        private int cantidadMaximaVisitante;
+
+        public string getNombreSede( string usuario)
+        {
+
+            return this.nombre;
+        }
+
+
     }
 }

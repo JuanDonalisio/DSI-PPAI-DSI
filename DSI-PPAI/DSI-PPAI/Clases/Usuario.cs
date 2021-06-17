@@ -8,6 +8,13 @@ namespace DSI_PPAI.Clases
 {
     class Usuario
     {
+        private string nombre;
+        private string clave;
 
+        public string getEmpleado()
+        {
+            Empleado empleado = new Empleado();
+            return this.nombre;
+        }
     }
 }

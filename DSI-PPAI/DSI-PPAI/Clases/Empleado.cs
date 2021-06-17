@@ -14,12 +14,17 @@ namespace DSI_PPAI.Clases
         private string apellido;
         private int legajo;
 
-        private string obtenerSedeDelEmpleado(string usuario)
-        {
-            Sede sede = new Sede();
-            return sede.getNombreSede(usuario);
+    
+
+        public int getLegajoEmpleado() {
+            return this.legajo;
         }
 
+        public string obtenerSedeDelEmpleado(int legajo)
+        {
+            Sede sede = new Sede();
+            return sede.getNombreSede(legajo);
+        }
 
     }
 }

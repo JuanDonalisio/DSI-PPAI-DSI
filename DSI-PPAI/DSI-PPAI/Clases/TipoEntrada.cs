@@ -10,6 +10,7 @@ namespace DSI_PPAI.Clases
 {
     class TipoEntrada
     {
+        private string nombre;
         Acceso_Datos _BD = new Acceso_Datos();
         public EstructuraComboBox GetNombre()
         {
@@ -21,6 +22,10 @@ namespace DSI_PPAI.Clases
             edc.Tabla = _BD.EjecutarSelect(edc.Sql);
 
             return edc;
+        }
+
+        public string getTipoEntrada() {
+            return this.nombre;
         }
 
     }

@@ -10,6 +10,7 @@ namespace DSI_PPAI.Clases
 {
     class TipoVisita
     {
+        private string nombre;
         Acceso_Datos _BD = new Acceso_Datos();
         public EstructuraComboBox GetNombre()
         {
@@ -22,6 +23,11 @@ namespace DSI_PPAI.Clases
 
             return edc;
         }
+
+        public string getTipoVisita() {
+            return this.nombre;
+        }
+
 
 
     }

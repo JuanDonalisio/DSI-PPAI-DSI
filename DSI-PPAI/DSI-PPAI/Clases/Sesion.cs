@@ -10,11 +10,10 @@ namespace DSI_PPAI.Clases
     class Sesion
     {
         
-        public string getUsuario()
+        public int getUsuario()
         {
             Usuario usuario = new Usuario();
             return usuario.getEmpleado();
-            
         }
     }
 }

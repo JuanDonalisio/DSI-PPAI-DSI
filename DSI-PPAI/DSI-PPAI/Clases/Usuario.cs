@@ -11,10 +11,11 @@ namespace DSI_PPAI.Clases
         private string nombre;
         private string clave;
 
-        public string getEmpleado()
+        Empleado empleado = new Empleado();
+
+        public int getEmpleado()
         {
-            Empleado empleado = new Empleado();
-            return this.nombre;
+            return empleado.getLegajoEmpleado();
         }
     }
 }

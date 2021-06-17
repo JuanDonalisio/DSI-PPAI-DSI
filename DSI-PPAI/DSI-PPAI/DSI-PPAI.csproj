@@ -48,6 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClasesAuxiliares\ComboBox01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClasesAuxiliares\EstructuraComboBox.cs" />
+    <Compile Include="ClasesAuxiliares\Grid01.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClasesAuxiliares\TextBox01.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Clases\DetalleExposicion.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\Entrada.cs" />
@@ -63,16 +73,36 @@
     <Compile Include="Clases\Sesion.cs" />
     <Compile Include="Clases\Tarifa.cs" />
     <Compile Include="Clases\TipoEntrada.cs" />
+    <Compile Include="Clases\TipoVisita.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DBconection\Acceso_Datos.cs" />
+    <Compile Include="Forms\Frm_CU_RegistrarVentaEntradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_CU_RegistrarVentaEntradas.Designer.cs">
+      <DependentUpon>Frm_CU_RegistrarVentaEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_CU_ResponsableVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_CU_ResponsableVentas.Designer.cs">
+      <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NE_Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Frm_CU_RegistrarVentaEntradas.resx">
+      <DependentUpon>Frm_CU_RegistrarVentaEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_CU_ResponsableVentas.resx">
+      <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

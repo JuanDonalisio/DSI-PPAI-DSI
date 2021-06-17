@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DSI_PPAI.Forms;
 
 namespace DSI_PPAI
 {
     public partial class Login : Form
     {
+        NE_Login login = new NE_Login();
         public String Pp_usuario
         {
             get { return txt_usuario.Text; }
@@ -48,6 +50,20 @@ namespace DSI_PPAI
                 MessageBox.Show("La casilla de PASSWORD se encuentra vacia");
                 txt_password.Focus();
                 return;
+            }
+
+            NE_Login.ResultadoValidacion resultado = login.Validar_Usuario(txt_usuario.Text, txt_password.Text);
+
+            if (resultado == NE_Login.ResultadoValidacion.existe)
+            {
+                Frm_CU_ResponsableVentas RV = new Frm_CU_ResponsableVentas();
+                RV.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("El usuario y la password no coinciden con ninguno de nuestra Base Datos.");
+                txt_usuario.Focus();
             }
         }
 

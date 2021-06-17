@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DSI_PPAI.DBconection;
 using System.Data;
+using DSI_PPAI.Forms;
 
 
 namespace DSI_PPAI.Clases
@@ -12,11 +13,14 @@ namespace DSI_PPAI.Clases
     class GestorRegistrarVenta
     {
         Acceso_Datos _bd = new Acceso_Datos();
+        Login login = new Login();
+        Sesion sesion = new Sesion();
+        Empleado empleado = new Empleado();
+
 
         //Se obtiene el nombre de la sede a traves del legajo del empleado logueado
         private string buscarSede(int legajo) 
         {
-            Empleado empleado = new Empleado();
             legajo = buscarUsuarioLogueado();
             return empleado.obtenerSedeDelEmpleado(legajo);
         }
@@ -24,8 +28,7 @@ namespace DSI_PPAI.Clases
         //Se obtiene el legajo del empleado que tiene usuario logueado
         private int buscarUsuarioLogueado()
         {
-            Sesion sesion = new Sesion();
-            return sesion.getUsuario();
+            return sesion.getUsuario(usuario);
         }
 
         //Se obtiene fecha y hora actual

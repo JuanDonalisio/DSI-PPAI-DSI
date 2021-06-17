@@ -24,3 +24,18 @@ D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\o
 D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
 D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
 D:\nano\Facultad\UTN\TERCER AÑO\DSI\PPAI\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe.config
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.pdb
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Principal.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Login.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Properties.Resources.resources
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.GenerateResource.cache
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CoreCompileInputs.cache
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
+C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb

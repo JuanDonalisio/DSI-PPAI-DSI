@@ -22,5 +22,10 @@ namespace DSI_PPAI.Forms
             Frm_CU_RegistrarVentaEntradas registrarVenta = new Frm_CU_RegistrarVentaEntradas();
             registrarVenta.ShowDialog();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -11,9 +11,9 @@ namespace DSI_PPAI.Clases
     {
         Usuario usuario = new Usuario();
 
-        public string getUsuario()
+        public string getUsuario(string nombUsuario)
         {
-            return usuario.getEmpleado();
+            return usuario.getEmpleado(nombUsuario);
         }
     }
 }

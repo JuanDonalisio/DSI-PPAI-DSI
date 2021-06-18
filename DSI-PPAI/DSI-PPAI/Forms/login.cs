@@ -29,6 +29,7 @@ namespace DSI_PPAI
             set { txt_password.Text = value; }
         }
 
+
         public Login()
         {
             InitializeComponent();
@@ -61,6 +62,8 @@ namespace DSI_PPAI
                 Frm_CU_ResponsableVentas RV = new Frm_CU_ResponsableVentas();
                 //Empleado emp = new Empleado();
                 //emp.legajo_empleado = int.Parse(id_usuario);
+                GestorRegistrarVenta GV = new GestorRegistrarVenta();
+                GV.nomUser = txt_usuario.Text;
                 RV.ShowDialog();
                 this.Close();
             }
@@ -89,5 +92,7 @@ namespace DSI_PPAI
             btn_ocultar_contrasena.Hide();
             btn_ver_contrasena.Show();
         }
+
     }
+
 }

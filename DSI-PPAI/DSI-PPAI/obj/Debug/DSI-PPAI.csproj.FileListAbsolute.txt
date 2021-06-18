@@ -2,7 +2,6 @@ C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe.con
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.exe
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\DSI-PPAI.pdb
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\Bunifu_UI_v1.52.dll
-C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Login.resources
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Properties.Resources.resources
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.GenerateResource.cache
@@ -39,3 +38,5 @@ C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPA
 C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
 C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
 C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
+C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
+C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources

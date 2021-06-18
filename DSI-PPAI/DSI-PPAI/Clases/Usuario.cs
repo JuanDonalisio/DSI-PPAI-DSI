@@ -13,9 +13,9 @@ namespace DSI_PPAI.Clases
 
         Empleado empleado = new Empleado();
 
-        public string getEmpleado()
+        public string getEmpleado(string nombUsuario)
         {
-            return empleado.getLegajoEmpleado();
+            return empleado.getLegajoEmpleado(nombUsuario);
         }
     }
 }

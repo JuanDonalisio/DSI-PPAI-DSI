@@ -13,7 +13,7 @@ namespace DSI_PPAI.Clases
     class GestorRegistrarVenta
     {
         private string id_sede { get; set; }
-        public string nomUser;
+        public string Pp_legajo;
         Acceso_Datos _BD = new Acceso_Datos();
         Login login = new Login();
         Sesion sesion = new Sesion();
@@ -22,20 +22,22 @@ namespace DSI_PPAI.Clases
 
         public DataTable RegistrarVenta()
         {
+            buscarSede();
+            buscarUsuarioLogueado();
             return buscarTarifasExistentes();
         }
 
         //Se obtiene el nombre de la sede a traves del legajo del empleado logueado
         private string buscarSede() 
         {
-            string leg = buscarUsuarioLogueado();
-            return empleado.obtenerSedeDelEmpleado(leg);
+            Pp_legajo = buscarUsuarioLogueado();
+            return empleado.obtenerSedeDelEmpleado(Pp_legajo);
         }
 
         //Se obtiene el legajo del empleado que tiene usuario logueado
         public string buscarUsuarioLogueado()
         {
-            string nombUsuario = nomUser;
+            string nombUsuario = "aomine";
             return sesion.getUsuario(nombUsuario);
         }
 
@@ -49,9 +51,8 @@ namespace DSI_PPAI.Clases
         //Se obtienen las tarifas que se encuentran en periodo de vigencia
         private DataTable buscarTarifasExistentes()
         {
-            string nomSede = buscarSede();
             string fechaActual = getFechaActual();
-            return sede.obtenerTarifa(fechaActual, nomSede);
+            return sede.obtenerTarifa(fechaActual, Pp_legajo);
         }
     }
 }

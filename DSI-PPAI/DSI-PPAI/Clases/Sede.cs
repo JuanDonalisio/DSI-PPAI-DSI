@@ -17,27 +17,29 @@ namespace DSI_PPAI.Clases
 
         public string getNombreSede(string legajo)
         {
-            string sql = "SELECT s.nombre FROM Empleado e JOIN Sede s ON e.id_sede = s.id_sede WHERE e.legajo = '" + legajo + "'";
+            string sql = "SELECT s.nombre FROM Empleado e JOIN Sede s ON e.id_sede = s.id_sede WHERE e.legajo = " + legajo ;
             string NombreSede = _BD.EjecutarSelect(sql).Rows[0][0].ToString();
             MessageBox.Show(NombreSede);
             return NombreSede;
         }
 
-        public DataTable obtenerTarifa(string fechaActual, string nombre)
+        public DataTable obtenerTarifa(string fechaActual, string leg)
         {
             //Instancio la tarifa
             Tarifa tarifa = new Tarifa();
 
             //Consulta para obtener id de la sede a partir del nombre
-            string sql = "SELECT s.id_sede FROM Sede s WHERE s.nombre = '" + nombre + "'";
+
+            string sql = "SELECT id_sede FROM Empleado WHERE legajo = '" + leg + "'";
+            MessageBox.Show(leg);
             string id_sede = _BD.EjecutarSelect(sql).Rows[0][0].ToString();
 
             //Recupero todas las tarifas
-            string sqlTodasLasTarifas = "SELECT t.id_tarifa, t.fechaInicioVigencia, t.fechaFinVigencia FROM Tarifa t " +
+            string sqlTodasLasTarifas = "SELECT DISTINCT t.id_tarifa, t.fechaInicioVigencia, t.fechaFinVigencia FROM Tarifa t " +
                          "JOIN Tarifas_X_Sede st on st.id_tarifa = t.id_tarifa " +
                          "JOIN TipoDeEntrada te on t.id_tipo_entrada = te.id_tipo_entrada " +
                          "JOIN TipoDeVisita tv on t.id_tipo_visita = tv.id_tipo_visita " +
-                         "WHERE st.id_sede = '" + id_sede + "'";
+                         "WHERE st.id_sede = 1234";
             //VER COMO HACER LLEGAR EL ID DE LA SEDE, EL RESTO FUNCIONA
             DataTable tablaTodasLasTarifas = _BD.EjecutarSelect(sqlTodasLasTarifas);
 

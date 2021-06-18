@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSI_PPAI.Forms;
+using DSI_PPAI.Clases;
 
 namespace DSI_PPAI
 {
     public partial class Login : Form
     {
+        public string id_usuario { get; set; }
         NE_Login login = new NE_Login();
         public String Pp_usuario
         {
@@ -57,6 +59,8 @@ namespace DSI_PPAI
             if (resultado == NE_Login.ResultadoValidacion.existe)
             {
                 Frm_CU_ResponsableVentas RV = new Frm_CU_ResponsableVentas();
+                //Empleado emp = new Empleado();
+                //emp.legajo_empleado = int.Parse(id_usuario);
                 RV.ShowDialog();
                 this.Close();
             }

@@ -12,43 +12,45 @@ namespace DSI_PPAI.Clases
 {
     class GestorRegistrarVenta
     {
-        Acceso_Datos _bd = new Acceso_Datos();
+        private string id_sede { get; set; }
+        Acceso_Datos _BD = new Acceso_Datos();
         Login login = new Login();
         Sesion sesion = new Sesion();
         Empleado empleado = new Empleado();
+        Sede sede = new Sede();
 
+        public DataTable RegistrarVenta()
+        {
+            string legajo_empleado = buscarSede();
+            id_sede = empleado.obtenerSedeDelEmpleado(legajo_empleado);
+            return buscarTarifasExistentes();
+            
+        }
 
         //Se obtiene el nombre de la sede a traves del legajo del empleado logueado
-        private string buscarSede(int legajo) 
+        private string buscarSede() 
         {
-            legajo = buscarUsuarioLogueado();
-            return empleado.obtenerSedeDelEmpleado(legajo);
+            return buscarUsuarioLogueado();
         }
 
         //Se obtiene el legajo del empleado que tiene usuario logueado
-        private int buscarUsuarioLogueado()
+        private string buscarUsuarioLogueado()
         {
-            return sesion.getUsuario(usuario);
+            return sesion.getUsuario();
         }
 
         //Se obtiene fecha y hora actual
-        private string getFechaActual() {
+        private string getFechaActual()
+        {
             string sql = "SELECT getDate()";
-            return _bd.EjecutarSelect(sql).Rows[0][0].ToString();
+            return _BD.EjecutarSelect(sql).Rows[0][0].ToString();
         }
 
         //Se obtienen las tarifas que se encuentran en periodo de vigencia
-        private void buscarTarifasExistentes() {
+        private DataTable buscarTarifasExistentes()
+        {
             string fechaActual = getFechaActual();
-            Tarifa tarifa = new Tarifa();
-            string sql = "SELECT fechaInicioVigencia, fechaFinVigencia FROM Tarifa ";
-            DataTable tabla = _bd.EjecutarSelect(sql);
-            for (int i = 0; i < tabla.Rows.Count; i++)
-            {
-                if (tarifa.esVigente(fechaActual,tabla.Rows[0][i].ToString(),tabla.Rows[1][i].ToString()) == true) {
-                    tarifa.getTarifa();
-                }
-            }
+            return sede.obtenerTarifa(fechaActual);
         }
     }
 }

@@ -17,7 +17,6 @@ namespace DSI_PPAI.DBconection
         string CadenaConexion = "Data Source=MNL;Initial Catalog=PPAI;Integrated Security=True";
         SqlConnection Conexion = new SqlConnection();
         SqlCommand Cmd = new SqlCommand();
-        //Hago una reserva del nombre pero no lo defino con = new SqlCommand
         SqlTransaction Transaction;
 
         EstadoTransaccion ControlTransaccion = EstadoTransaccion.correcto;
@@ -49,7 +48,6 @@ namespace DSI_PPAI.DBconection
 
         private void Conectar()
         {
-            //Pregunto si el estado de la conexion es igual a Close, si fuese igual a Open no debería ejecutarlo
             if (Conexion.State == ConnectionState.Closed)
             {
                 Conexion.ConnectionString = CadenaConexion;
@@ -59,10 +57,7 @@ namespace DSI_PPAI.DBconection
 
                 if (ControlConexion == TipoConexion.transaccion)
                 {
-                    //Comienzo de transaccion
-                    //Con IsolationLevel.ReadCommitted le digo que me permita ver lo que está en el buffer en tiempo de transaccion, si hago una consulta va a mostrarme los datos de la tabla y los datos del buffer
                     Transaction = Conexion.BeginTransaction(IsolationLevel.ReadCommitted);
-                    //Le digo al comando quien maneja la transaccion
                     Cmd.Transaction = Transaction;
                 }
             }

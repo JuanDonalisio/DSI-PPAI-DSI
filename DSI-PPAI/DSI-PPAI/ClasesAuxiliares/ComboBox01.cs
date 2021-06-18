@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSI_PPAI.DBconection;
+using System.Data;
 
 namespace DSI_PPAI.ClasesAuxiliares
 {
@@ -35,6 +36,40 @@ namespace DSI_PPAI.ClasesAuxiliares
             else
             {
                 this.SelectedIndex = -1;
+            }
+        }
+
+        public void CargarComboTipoEntrada(DataTable tabla)
+        {
+            this.ValueMember = "id_tipo_entrada";
+            this.DisplayMember = "nombre_tipo_entrada";
+            this.DataSource = tabla;
+
+            if (this.Pp_Conseleccion == true)
+            {
+                this.SelectedIndex = 0;
+            }
+            else
+            {
+                this.SelectedIndex = -1;
+                this.Text = "Haga una selección";
+            }
+        }
+
+        public void CargarComboTipoVisita(DataTable tabla)
+        {
+            this.ValueMember = "id_tipo_visita";
+            this.DisplayMember = "nombre_tipo_visita";
+            this.DataSource = tabla;
+
+            if (this.Pp_Conseleccion == true)
+            {
+                this.SelectedIndex = 0;
+            }
+            else
+            {
+                this.SelectedIndex = -1;
+                this.Text = "Haga una selección";
             }
         }
     }

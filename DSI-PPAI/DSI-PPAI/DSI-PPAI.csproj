@@ -88,12 +88,6 @@
     <Compile Include="Forms\Frm_CU_ResponsableVentas.Designer.cs">
       <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Frm_Principal.Designer.cs">
-      <DependentUpon>Frm_Principal.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +102,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_CU_ResponsableVentas.resx">
       <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_Principal.resx">
-      <DependentUpon>Frm_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>

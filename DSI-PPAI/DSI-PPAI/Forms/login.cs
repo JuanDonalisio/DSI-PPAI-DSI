@@ -62,6 +62,7 @@ namespace DSI_PPAI
                 Frm_CU_ResponsableVentas RV = new Frm_CU_ResponsableVentas();
                 //Empleado emp = new Empleado();
                 //emp.legajo_empleado = int.Parse(id_usuario);
+                RV.nombre_usuario = txt_usuario.Text;
                 RV.ShowDialog();
                 this.Close();
             }

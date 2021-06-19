@@ -118,10 +118,12 @@ namespace DSI_PPAI.Clases
         {
             TipoEntrada tipoEntrada = new TipoEntrada();
             TipoVisita tipoVisita = new TipoVisita();
+            string sql = "SELECT monto, montoAdicional FROM Tarifa WHERE id_tarifa = " + id_tarifa;
+            DataTable tabla = _bd.EjecutarSelect(sql);
             string tarifa = "";
             string nombreEntrada= tipoEntrada.getNombreTipoEntrada(id_tarifa);
             string nombreVisita = tipoVisita.getNombreTipoVisita(id_tarifa);
-            tarifa = (id_tarifa + ", " + nombreEntrada + ", " + nombreVisita);
+            tarifa = (id_tarifa + ", " + nombreEntrada + ", " + nombreVisita + ", " + tabla.Rows[0][0].ToString() + ", " + tabla.Rows[0][1].ToString());
             return tarifa;
             
            

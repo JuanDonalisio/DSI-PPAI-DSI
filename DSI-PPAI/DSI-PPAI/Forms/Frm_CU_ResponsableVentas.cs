@@ -12,7 +12,7 @@ namespace DSI_PPAI.Forms
 {
     public partial class Frm_CU_ResponsableVentas : Form
     {
-
+        public string nombre_usuario { get; set; }
         public Frm_CU_ResponsableVentas()
         {
             InitializeComponent();
@@ -31,6 +31,7 @@ namespace DSI_PPAI.Forms
         private void btn_registrar_venta_entradas_Click(object sender, EventArgs e)
         {
             Frm_CU_RegistrarVentaEntradas registrarVenta = new Frm_CU_RegistrarVentaEntradas();
+            registrarVenta.nombre_usuario = nombre_usuario;
             registrarVenta.ShowDialog();
         }
     }

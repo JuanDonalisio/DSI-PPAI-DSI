@@ -9,16 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DSI_PPAI.Clases;
 using DSI_PPAI.ClasesAuxiliares;
+using System.Collections.Generic;
 
 namespace DSI_PPAI.Forms
 {
     public partial class Frm_CU_RegistrarVentaEntradas : Form
     {
+        public string nombre_usuario { get; set; }
         EstructuraComboBox estructuraTipoEntrada = new EstructuraComboBox();
         EstructuraComboBox estructuraTipoVisita = new EstructuraComboBox();
         public string id_usuario { get; set; }
         Tarifa tarifa = new Tarifa();
         GestorRegistrarVenta gestor = new GestorRegistrarVenta();
+        public DataTable tablaDeTarifas;
+        public DataTable tablaSinRepetidosEntrada;
         public Frm_CU_RegistrarVentaEntradas()
         {
             InitializeComponent();
@@ -26,10 +30,51 @@ namespace DSI_PPAI.Forms
 
         private void Frm_CU_RegistrarVentaEntradas_Load(object sender, EventArgs e)
         {
-            DataTable tabla = gestor.RegistrarVenta();
-            cmb_tipo_entrada.CargarComboTipoEntrada(tabla);
-            cmb_tipo_visita.CargarComboTipoVisita(tabla);
-            grid_entradas.Formatear("Tipo de Entrada,150; Tipo de Visita,150; Precio,150; Guía,150; Precio adicional guía,150");
+            gestor.nombre_usuario = nombre_usuario;
+            tablaDeTarifas = gestor.RegistrarVenta();
+            TipoEntrada tipo_entrada = new TipoEntrada();
+            TipoVisita tipo_visita = new TipoVisita();
+            //tablaSinRepetidosEntrada = new DataTable();
+            //tablaSinRepetidosEntrada.Columns.Add("id_tarifa", typeof(String));
+            //tablaSinRepetidosEntrada.Columns.Add("id_tipo_entrada", typeof(String));
+            //tablaSinRepetidosEntrada.Columns.Add("nombre_tipo_entrada", typeof(String));
+            //tablaSinRepetidosEntrada.Columns.Add("id_tipo_visita", typeof(String));
+            //tablaSinRepetidosEntrada.Columns.Add("nombre_tipo_visita", typeof(String));
+
+            //List<string> tipo_entrada = new List<string>();
+
+            //for (int i = 0; i < tablaDeTarifas.Rows.Count; i++)
+            //{
+            //    if (tipo_entrada.Any(x => x == tablaDeTarifas.Rows[i][1].ToString()))
+            //    {
+
+            //    }
+            //    else
+            //    {
+            //        tipo_entrada.Add(tablaDeTarifas.Rows[i][1].ToString());
+            //        tablaSinRepetidosEntrada.Rows.Add(tablaDeTarifas.Rows[i][0].ToString(), tablaDeTarifas.Rows[i][1].ToString(), tablaDeTarifas.Rows[i][2].ToString(), tablaDeTarifas.Rows[i][3].ToString(), tablaDeTarifas.Rows[i][4].ToString());
+            //    }
+            //}
+            //cmb_tipo_entrada.CargarComboTipoEntrada(tablaSinRepetidosEntrada);
+            cmb_tipo_entrada.CargarCombo(tipo_entrada.GetTipoEntrada());
+            cmb_tipo_visita.CargarCombo(tipo_visita.GetTipoVisita());
+            grid_tarifas.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
+            CargarGrilla(tablaDeTarifas);
+        }
+
+        private void CargarGrilla(DataTable tabla)
+        {
+            grid_tarifas.Rows.Clear();
+
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                grid_tarifas.Rows.Add();
+                grid_tarifas.Rows[i].Cells[0].Value = tabla.Rows[i]["nombre_tipo_entrada"].ToString();
+                grid_tarifas.Rows[i].Cells[1].Value = tabla.Rows[i]["nombre_tipo_visita"].ToString();
+                grid_tarifas.Rows[i].Cells[2].Value = tabla.Rows[i]["monto"].ToString();
+                grid_tarifas.Rows[i].Cells[3].Value = tabla.Rows[i]["montoAdicional"].ToString();
+            }
+
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
@@ -37,5 +82,41 @@ namespace DSI_PPAI.Forms
 
         }
 
+        private void cmb_tipo_entrada_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //cmb_tipo_visita.Enabled = true;
+            //cmb_tipo_visita.Items.Clear();
+            //if (cmb_tipo_entrada.SelectedIndex != -1)
+            //{
+            //    //Itera tantas veces como tipos de entrada haya
+            //    for (int i = 0; i < tablaDeTarifas.Rows.Count; i++)
+            //    {
+            //        //Pregunta si el tipo de entrada de la tabla con TODAS las tarifas vigentes es igual 
+            //        //al tipo de entrada de la tabla con los tipos de entrada sin repetir
+            //        //Por cada tipo de entrada igual y repetido si se da la ocasión agregue el tipo de visita
+            //        //TablaDeTarifas tiene todas las tarifas vigentes
+            //        //TablaSinRepetidosEntrada tiene todos los tipos de entrada de las entradas vigentes sin repetir
+            //        if (tablaDeTarifas.Rows[i][1].ToString() == cmb_tipo_entrada.SelectedValue.ToString())
+            //        {
+            //            ComboboxItem item = new ComboboxItem();
+            //            item.Text = tablaDeTarifas.Rows[i][4].ToString();
+            //            item.Value = tablaDeTarifas.Rows[i][3].ToString();
+            //            cmb_tipo_visita.Items.Add(item);
+            //        }
+            //    }
+                
+            //}
+        }
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
     }
 }

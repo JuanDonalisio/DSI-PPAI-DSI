@@ -26,7 +26,6 @@ namespace DSI_PPAI.Forms
             {
                 //login.id_usuario = tabla.Rows[0][0].ToString();
                 Empleado emp = new Empleado();
-                MessageBox.Show(tabla.Rows[0][0].ToString());
                 emp.legajo_empleado = int.Parse(tabla.Rows[0][0].ToString());
                 return ResultadoValidacion.existe;
             }

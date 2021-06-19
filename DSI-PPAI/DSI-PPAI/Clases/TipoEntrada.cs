@@ -30,7 +30,8 @@ namespace DSI_PPAI.Clases
             //Recupero el id y nombre del tipo de entrada asociado al id de la tarifa
             string sql = "SELECT t.id_tipo_entrada, te.nombre as nombre_tipo_entrada FROM Tarifa t " +
                          "JOIN TipoDeEntrada te on t.id_tipo_entrada = te.id_tipo_entrada " +
-                         "WHERE t.id_tarifa = " + id_tarifa;
+                         "WHERE t.id_tarifa = " + id_tarifa + 
+                         " ORDER BY t.id_tipo_entrada";
             DataTable tabla = _BD.EjecutarSelect(sql);
             IdYnombre = (tabla.Rows[0][0].ToString() + ", " + tabla.Rows[0][1].ToString());
             return IdYnombre;

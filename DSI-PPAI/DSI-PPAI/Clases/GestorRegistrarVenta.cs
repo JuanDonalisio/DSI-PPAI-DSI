@@ -56,5 +56,22 @@ namespace DSI_PPAI.Clases
             sede.id_sede = id_sede;
             return sede.obtenerTarifa(fechaActual, Pp_legajo);
         }
+
+
+
+
+        //Mirar estos 3
+        public int validarLimiteVisitantes() {
+            return 0;
+        }
+
+        public int contarEntradasVendidas() {
+            return 0;
+        }
+
+        public int contarEntradasDeReserva()
+        {
+            return 0;
+        }
     }
 }

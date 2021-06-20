@@ -59,6 +59,7 @@ namespace DSI_PPAI.Forms
             cmb_tipo_entrada.CargarCombo(tipo_entrada.GetTipoEntrada());
             cmb_tipo_visita.CargarCombo(tipo_visita.GetTipoVisita());
             grid_tarifas.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
+            grid_tarifa_seleccionada.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
             CargarGrilla(tablaDeTarifas);
         }
 
@@ -79,7 +80,13 @@ namespace DSI_PPAI.Forms
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-
+            if ((int.Parse(txt_cantidad.Text) + gestor.contarEntradasDeReserva() + gestor.contarEntradasVendidas()) < gestor.validarLimiteVisitantes())
+            {
+                MessageBox.Show("Todo ok");
+            }
+            else {
+                MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+            }
         }
 
         private void cmb_tipo_entrada_SelectionChangeCommitted(object sender, EventArgs e)
@@ -117,6 +124,17 @@ namespace DSI_PPAI.Forms
             {
                 return Text;
             }
+        }
+
+        //Carga en la segunda grilla la tarifa que seleccionamos
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int i = grid_tarifas.CurrentRow.Index;
+            grid_tarifa_seleccionada.Rows.Add();
+            grid_tarifa_seleccionada.Rows[0].Cells[0].Value = grid_tarifas.Rows[i].Cells[0].Value;
+            grid_tarifa_seleccionada.Rows[0].Cells[1].Value = grid_tarifas.Rows[i].Cells[1].Value;
+            grid_tarifa_seleccionada.Rows[0].Cells[2].Value = grid_tarifas.Rows[i].Cells[2].Value;
+            grid_tarifa_seleccionada.Rows[0].Cells[3].Value = grid_tarifas.Rows[i].Cells[3].Value;
         }
     }
 }

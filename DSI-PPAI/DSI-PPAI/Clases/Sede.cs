@@ -14,6 +14,7 @@ namespace DSI_PPAI.Clases
         private string nombre;
         private int cantidadMaximaVisitante;
         public string id_sede { get; set; }
+        Entrada entrada = new Entrada();
         Acceso_Datos _BD = new Acceso_Datos();
 
         public string getNombreSede(string legajo)
@@ -67,6 +68,17 @@ namespace DSI_PPAI.Clases
                 }
             }
             return tablaIDTarifas;
+        }
+
+        public int obtenerCantidadMaximaVisitantes(string id_sede) {
+            string sql = "SELECT cant_max_visitantes FROM Sede WHERE id_sede =" + id_sede;
+            int max = Int32.Parse(_BD.EjecutarSelect(sql).ToString());
+            return max;
+        }
+
+        public int validarFechaEntradas(string id_sede, string fechaActual) {
+            int cant = entrada.esTuFecha(id_sede, fechaActual);
+            return cant;
         }
     }
 }

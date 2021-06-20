@@ -57,18 +57,24 @@ namespace DSI_PPAI.Clases
             return sede.obtenerTarifa(fechaActual, Pp_legajo);
         }
 
+        //Calcula la duracion estimada de una visita completa <----- FALTA 
+        private void calcularDuracionAExposicionesVigentes() {
 
+        }
 
-
-        //Mirar estos 3
+        //Trae la cantidad maxima de visitantes que tiene la sede actual
         public int validarLimiteVisitantes() {
-            return 0;
+            int limite = sede.obtenerCantidadMaximaVisitantes(id_sede);
+            return limite;
         }
 
+        //Trae la cantidad de entradas vendida en la fecha actual actual
         public int contarEntradasVendidas() {
+            sede.validarFechaEntradas(id_sede, getFechaActual());
             return 0;
         }
 
+        //Trae la cantidad de alumnos confirmados con reserva para la fecha actual <-----FALTA
         public int contarEntradasDeReserva()
         {
             return 0;

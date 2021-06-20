@@ -40,3 +40,4 @@ C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPA
 C:\Users\NAFEVI\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources
+C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache

@@ -33,10 +33,13 @@
             this.btn_agregar = new System.Windows.Forms.Button();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.cargar_tarifa_seleccionada = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.grid_tarifa_seleccionada = new DSI_PPAI.ClasesAuxiliares.Grid01();
             this.grid_tarifas = new DSI_PPAI.ClasesAuxiliares.Grid01();
             this.cmb_tipo_entrada = new DSI_PPAI.ClasesAuxiliares.ComboBox01();
             this.cmb_tipo_visita = new DSI_PPAI.ClasesAuxiliares.ComboBox01();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifa_seleccionada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifas)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(310, 24);
+            this.label1.Location = new System.Drawing.Point(310, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 4;
@@ -55,7 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 4;
@@ -64,7 +67,7 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(126, 319);
+            this.btn_agregar.Location = new System.Drawing.Point(126, 371);
             this.btn_agregar.Name = "btn_agregar";
             this.btn_agregar.Size = new System.Drawing.Size(75, 29);
             this.btn_agregar.TabIndex = 5;
@@ -75,7 +78,7 @@
             // txt_cantidad
             // 
             this.txt_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_cantidad.Location = new System.Drawing.Point(12, 319);
+            this.txt_cantidad.Location = new System.Drawing.Point(12, 371);
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(100, 29);
             this.txt_cantidad.TabIndex = 6;
@@ -83,7 +86,7 @@
             // cargar_tarifa_seleccionada
             // 
             this.cargar_tarifa_seleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cargar_tarifa_seleccionada.Location = new System.Drawing.Point(656, 20);
+            this.cargar_tarifa_seleccionada.Location = new System.Drawing.Point(656, 38);
             this.cargar_tarifa_seleccionada.Name = "cargar_tarifa_seleccionada";
             this.cargar_tarifa_seleccionada.Size = new System.Drawing.Size(120, 29);
             this.cargar_tarifa_seleccionada.TabIndex = 7;
@@ -91,15 +94,33 @@
             this.cargar_tarifa_seleccionada.UseVisualStyleBackColor = true;
             this.cargar_tarifa_seleccionada.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(219, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Seleccionar tarifa vigentes de la sede actual:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 336);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(277, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Agregar cantidad de entradas para la tarifa seleccionada:";
+            // 
             // grid_tarifa_seleccionada
             // 
             this.grid_tarifa_seleccionada.AllowUserToAddRows = false;
             this.grid_tarifa_seleccionada.AllowUserToDeleteRows = false;
             this.grid_tarifa_seleccionada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_tarifa_seleccionada.Location = new System.Drawing.Point(12, 374);
+            this.grid_tarifa_seleccionada.Location = new System.Drawing.Point(12, 426);
             this.grid_tarifa_seleccionada.Name = "grid_tarifa_seleccionada";
             this.grid_tarifa_seleccionada.ReadOnly = true;
-            this.grid_tarifa_seleccionada.Size = new System.Drawing.Size(834, 61);
+            this.grid_tarifa_seleccionada.Size = new System.Drawing.Size(849, 61);
             this.grid_tarifa_seleccionada.TabIndex = 3;
             // 
             // grid_tarifas
@@ -107,17 +128,18 @@
             this.grid_tarifas.AllowUserToAddRows = false;
             this.grid_tarifas.AllowUserToDeleteRows = false;
             this.grid_tarifas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_tarifas.Location = new System.Drawing.Point(12, 66);
+            this.grid_tarifas.Location = new System.Drawing.Point(12, 84);
             this.grid_tarifas.Name = "grid_tarifas";
             this.grid_tarifas.ReadOnly = true;
-            this.grid_tarifas.Size = new System.Drawing.Size(834, 231);
+            this.grid_tarifas.Size = new System.Drawing.Size(849, 231);
             this.grid_tarifas.TabIndex = 3;
             // 
             // cmb_tipo_entrada
             // 
+            this.cmb_tipo_entrada.BackColor = System.Drawing.Color.Goldenrod;
             this.cmb_tipo_entrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_tipo_entrada.FormattingEnabled = true;
-            this.cmb_tipo_entrada.Location = new System.Drawing.Point(138, 21);
+            this.cmb_tipo_entrada.Location = new System.Drawing.Point(138, 39);
             this.cmb_tipo_entrada.Name = "cmb_tipo_entrada";
             this.cmb_tipo_entrada.Pp_Conseleccion = false;
             this.cmb_tipo_entrada.Pp_MensajeError = null;
@@ -129,9 +151,10 @@
             // 
             // cmb_tipo_visita
             // 
+            this.cmb_tipo_visita.BackColor = System.Drawing.Color.Goldenrod;
             this.cmb_tipo_visita.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_tipo_visita.FormattingEnabled = true;
-            this.cmb_tipo_visita.Location = new System.Drawing.Point(416, 21);
+            this.cmb_tipo_visita.Location = new System.Drawing.Point(416, 39);
             this.cmb_tipo_visita.Name = "cmb_tipo_visita";
             this.cmb_tipo_visita.Pp_Conseleccion = false;
             this.cmb_tipo_visita.Pp_MensajeError = null;
@@ -140,11 +163,24 @@
             this.cmb_tipo_visita.Size = new System.Drawing.Size(143, 28);
             this.cmb_tipo_visita.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 516);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Detalle de las entradas:";
+            // 
             // Frm_CU_RegistrarVentaEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(108)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(864, 649);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cargar_tarifa_seleccionada);
             this.Controls.Add(this.txt_cantidad);
             this.Controls.Add(this.btn_agregar);
@@ -176,5 +212,8 @@
         private ClasesAuxiliares.Grid01 grid_tarifa_seleccionada;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.Button cargar_tarifa_seleccionada;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

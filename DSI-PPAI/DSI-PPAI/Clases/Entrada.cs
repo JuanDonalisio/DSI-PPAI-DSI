@@ -18,7 +18,7 @@ namespace DSI_PPAI.Clases
         Acceso_Datos _bd = new Acceso_Datos();
 
         public int esTuFecha(string id_sede,string fechaActual) {
-            string sql = "SELECT count(*) FROM Entrada WHERE fecha_venta =" + fechaActual + "AND id_sede =" + id_sede;
+            string sql = "SELECT count(*) FROM Entrada WHERE fechaVenta ="+ fechaActual + "AND id_sede =" + id_sede;
             int cantidad = int.Parse(_bd.EjecutarSelect(sql).ToString());
             return cantidad;
         }

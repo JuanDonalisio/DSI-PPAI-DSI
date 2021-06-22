@@ -31,7 +31,6 @@ namespace DSI_PPAI.Clases
         //Se obtiene el nombre de la sede a traves del legajo del empleado logueado
         private string buscarSede() 
         {
-            
             return empleado.obtenerSedeDelEmpleado(Pp_legajo);
         }
 
@@ -62,22 +61,21 @@ namespace DSI_PPAI.Clases
 
         }
 
-        //Trae la cantidad maxima de visitantes que tiene la sede actual
+        //Trae la cantidad maxima de visitantes que tiene la sede actual <-----Chequear
         public int validarLimiteVisitantes() {
             int limite = sede.obtenerCantidadMaximaVisitantes(id_sede);
             return limite;
         }
 
-        //Trae la cantidad de entradas vendida en la fecha actual actual
+        //Trae la cantidad de entradas vendida en la fecha actual actual <-----Chequear
         public int contarEntradasVendidas() {
-            sede.validarFechaEntradas(id_sede, getFechaActual());
-            return 0;
+            return sede.validarFechaEntradas(id_sede, getFechaActual());
         }
 
-        //Trae la cantidad de alumnos confirmados con reserva para la fecha actual <-----FALTA
+        //Trae la cantidad de alumnos confirmados con reserva para la fecha actual <-----Chequear
         public int contarEntradasDeReserva()
         {
-            return 0;
+            return sede.obtenerEntradasDeReserva(id_sede);
         }
     }
 }

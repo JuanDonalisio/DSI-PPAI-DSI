@@ -15,6 +15,7 @@ namespace DSI_PPAI.Clases
         private int cantidadMaximaVisitante;
         public string id_sede { get; set; }
         Entrada entrada = new Entrada();
+        ReservaVisita reservaVisita = new ReservaVisita();
         Acceso_Datos _BD = new Acceso_Datos();
 
         public string getNombreSede(string legajo)
@@ -79,6 +80,21 @@ namespace DSI_PPAI.Clases
         public int validarFechaEntradas(string id_sede, string fechaActual) {
             int cant = entrada.esTuFecha(id_sede, fechaActual);
             return cant;
+        }
+
+        //Cantidad total de alumnos confirmados de todas las reservas que cumplen la condicion
+        public int obtenerEntradasDeReserva(string id_sede) {
+            string sql = "SELECT * FROM ReservaVisita WHERE id_sede =" + id_sede;
+            DataTable reservas = _BD.EjecutarSelect(sql);
+            int cantidad = 0;
+            for (int i = 0; i < reservas.Rows.Count; i++)
+            {
+
+                if(reservaVisita.estaEnFecha(reservas.Rows[i]) == true && reservaVisita.estaEnRangoDuracion(reservas.Rows[i]) == true){
+                    cantidad = cantidad + reservaVisita.getAlumnosConfirmados(reservas.Rows[i]);
+                }
+            }
+            return cantidad;
         }
     }
 }

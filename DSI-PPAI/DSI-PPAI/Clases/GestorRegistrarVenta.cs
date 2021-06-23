@@ -57,11 +57,11 @@ namespace DSI_PPAI.Clases
         }
 
         //Calcula la duracion estimada de una visita completa <----- FALTA 
-        private void calcularDuracionAExposicionesVigentes() {
-
+        private int calcularDuracionAExposicionesVigentes() {
+            return sede.obtenerDuracionExposicionesVigentes(id_sede, getFechaActual());
         }
 
-        //Trae la cantidad maxima de visitantes que tiene la sede actual <-----Chequear
+        //Trae la cantidad maxima de visitantes que tiene la sede actual <-----Cambiar
         public int validarLimiteVisitantes() {
             int limite = sede.obtenerCantidadMaximaVisitantes(id_sede);
             return limite;
@@ -76,6 +76,10 @@ namespace DSI_PPAI.Clases
         public int contarEntradasDeReserva()
         {
             return sede.obtenerEntradasDeReserva(id_sede);
+        }
+
+        public void tomarSeleccionTarifa() {
+            calcularDuracionAExposicionesVigentes();
         }
     }
 }

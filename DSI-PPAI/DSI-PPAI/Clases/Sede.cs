@@ -17,6 +17,7 @@ namespace DSI_PPAI.Clases
         Entrada entrada = new Entrada();
         ReservaVisita reservaVisita = new ReservaVisita();
         Acceso_Datos _BD = new Acceso_Datos();
+        Exposicion exposicion = new Exposicion();
 
         public string getNombreSede(string legajo)
         {
@@ -95,6 +96,23 @@ namespace DSI_PPAI.Clases
                 }
             }
             return cantidad;
+        }
+
+        public int obtenerDuracionExposicionesVigentes(string id_sede, string fechaActual) {
+            string sql = "SELECT id_exposicion FROM Exposiciones_X_Sede WHERE id_sede = " + id_sede;
+            DataTable id_exposiciones = _BD.EjecutarSelect(sql);
+            DataTable tablaExposiciones = new DataTable();
+
+
+            int contador = 0;
+            for (int i = 0; i < id_exposiciones.Rows.Count; i++)
+            {
+                if (exposicion.esVigenteExposicion(id_exposiciones.Rows[i][0].ToString(), fechaActual) == true)
+                {
+                    contador = contador + exposicion.getExposicion(id_exposiciones.Rows[i][0].ToString());
+                }
+            }
+            return contador;
         }
     }
 }

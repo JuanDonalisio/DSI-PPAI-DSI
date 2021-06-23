@@ -79,37 +79,48 @@ namespace DSI_PPAI.Clases
         }
 
         public int validarFechaEntradas(string id_sede, string fechaActual) {
-            int cant = entrada.esTuFecha(id_sede, fechaActual);
-            return cant;
+
+            string sql = "SELECT fechaVenta FROM Entrada WHERE id_sede =" + id_sede;
+            DataTable tabla = _BD.EjecutarSelect(sql);
+            int contador = 0;
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                if (entrada.esTuFecha(tabla.Rows[i][0].ToString(), fechaActual))
+                {
+                    contador += 1;
+                }
+            }
+            return contador;
+            
         }
 
         //Cantidad total de alumnos confirmados de todas las reservas que cumplen la condicion
-        public int obtenerEntradasDeReserva(string id_sede) {
+        public int obtenerEntradasDeReserva(string id_sede, int[] duracion) {
             string sql = "SELECT * FROM ReservaVisita WHERE id_sede =" + id_sede;
             DataTable reservas = _BD.EjecutarSelect(sql);
             int cantidad = 0;
             for (int i = 0; i < reservas.Rows.Count; i++)
             {
 
-                if(reservaVisita.estaEnFecha(reservas.Rows[i]) == true && reservaVisita.estaEnRangoDuracion(reservas.Rows[i]) == true){
+                if(reservaVisita.estaEnFecha(reservas.Rows[i]) == true && reservaVisita.estaEnRangoDuracion(reservas.Rows[i], duracion) == true){
                     cantidad = cantidad + reservaVisita.getAlumnosConfirmados(reservas.Rows[i]);
                 }
             }
             return cantidad;
         }
 
-        public int obtenerDuracionExposicionesVigentes(string id_sede, string fechaActual) {
+        public int[] obtenerDuracionExposicionesVigentes(string id_sede, string fechaActual) {
             string sql = "SELECT id_exposicion FROM Exposiciones_X_Sede WHERE id_sede = " + id_sede;
             DataTable id_exposiciones = _BD.EjecutarSelect(sql);
             DataTable tablaExposiciones = new DataTable();
 
 
-            int contador = 0;
+            int[] contador = new int[3];
             for (int i = 0; i < id_exposiciones.Rows.Count; i++)
             {
                 if (exposicion.esVigenteExposicion(id_exposiciones.Rows[i][0].ToString(), fechaActual) == true)
                 {
-                    contador = contador + exposicion.getExposicion(id_exposiciones.Rows[i][0].ToString());
+                    contador = exposicion.getExposicion(id_exposiciones.Rows[i][0].ToString());
                 }
             }
             return contador;

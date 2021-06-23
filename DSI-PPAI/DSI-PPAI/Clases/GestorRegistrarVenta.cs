@@ -15,6 +15,7 @@ namespace DSI_PPAI.Clases
         private string id_sede { get; set; }
         public string Pp_legajo { get; set; }
         public string nombre_usuario { get; set; }
+        public int[] duracion { get; set; }
         Acceso_Datos _BD = new Acceso_Datos();
         Login login = new Login();
         Sesion sesion = new Sesion();
@@ -57,7 +58,7 @@ namespace DSI_PPAI.Clases
         }
 
         //Calcula la duracion estimada de una visita completa <----- FALTA 
-        private int calcularDuracionAExposicionesVigentes() {
+        private int[] calcularDuracionAExposicionesVigentes() {
             return sede.obtenerDuracionExposicionesVigentes(id_sede, getFechaActual());
         }
 
@@ -75,11 +76,28 @@ namespace DSI_PPAI.Clases
         //Trae la cantidad de alumnos confirmados con reserva para la fecha actual <-----Chequear
         public int contarEntradasDeReserva()
         {
-            return sede.obtenerEntradasDeReserva(id_sede);
+            return sede.obtenerEntradasDeReserva(id_sede, duracion);
         }
 
-        public void tomarSeleccionTarifa() {
-            calcularDuracionAExposicionesVigentes();
+        public int[] tomarSeleccionTarifa() {
+
+            duracion = calcularDuracionAExposicionesVigentes();
+            return duracion;
+        }
+
+        public bool tomarCantidadDeEntradas(int cantidad_entradas_a_comprar)
+        {
+            int cant_max = validarLimiteVisitantes();
+            int entradas_vendidas = contarEntradasVendidas();
+            int entradas_reserva = contarEntradasDeReserva();
+            if(cant_max > (entradas_reserva + entradas_vendidas + cantidad_entradas_a_comprar))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

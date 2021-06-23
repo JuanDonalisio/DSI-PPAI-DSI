@@ -16,18 +16,30 @@ namespace DSI_PPAI.Clases
         public bool estaEnFecha(System.Data.DataRow fila) {
             string sql = "SELECT getDate()";
             string fechaActual = _bd.EjecutarSelect(sql).ToString();
-            if (fila[3].ToString() == fechaActual ) {
+            string fechaReserva = fila[3].ToString();
+
+            string[] subcadenaFechaYHoraActual = fechaActual.Split(' ');
+            string[] subcadenaFechaYHoraReserva = fechaReserva.Split(' ');
+
+            if (subcadenaFechaYHoraReserva[0] == subcadenaFechaYHoraActual[0] )
+            {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
             
         }
 
         //No se we
-        public bool estaEnRangoDuracion(System.Data.DataRow fila)
+        public bool estaEnRangoDuracion(System.Data.DataRow fila, int[]duracion)
         {
+            //La hora de inicio esta dentro de la fechaHoraReserva
+            //La hora de fin es la hora de inicio + la duracionEstimada
+
+            //Recuperar fecha actual para tener una hora de inicio de la visita
+            //la hora de fin sería la hora de inicio de la visita + la duración que pasamos por parámetro
             return true;
         }
 

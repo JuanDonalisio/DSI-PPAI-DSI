@@ -80,7 +80,7 @@ namespace DSI_PPAI.Forms
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            if ((int.Parse(txt_cantidad.Text) + gestor.contarEntradasDeReserva() + gestor.contarEntradasVendidas()) < gestor.validarLimiteVisitantes())
+            if (gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text)))
             {
                 MessageBox.Show("Todo ok");
             }
@@ -135,6 +135,7 @@ namespace DSI_PPAI.Forms
             grid_tarifa_seleccionada.Rows[0].Cells[1].Value = grid_tarifas.Rows[i].Cells[1].Value;
             grid_tarifa_seleccionada.Rows[0].Cells[2].Value = grid_tarifas.Rows[i].Cells[2].Value;
             grid_tarifa_seleccionada.Rows[0].Cells[3].Value = grid_tarifas.Rows[i].Cells[3].Value;
+            gestor.tomarSeleccionTarifa();
         }
     }
 }

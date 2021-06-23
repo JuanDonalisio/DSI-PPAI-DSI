@@ -136,9 +136,9 @@ namespace DSI_PPAI.Clases
             }
         }
 
-        public int getExposicion(string id_exposicion) {
+        public int[] getExposicion(string id_exposicion) {
 
-            //return de.getDetalleExposicion(exposicion[8].ToString());
+            return de.getDetalleExposicion(id_exposicion);
         }
 
     }

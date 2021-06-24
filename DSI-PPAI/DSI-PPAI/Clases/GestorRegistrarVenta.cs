@@ -57,23 +57,23 @@ namespace DSI_PPAI.Clases
             return sede.obtenerTarifa(fechaActual, Pp_legajo);
         }
 
-        //Calcula la duracion estimada de una visita completa <----- FALTA 
+        //Calcula la duracion estimada de una visita completa 
         private int[] calcularDuracionAExposicionesVigentes() {
             return sede.obtenerDuracionExposicionesVigentes(id_sede, getFechaActual());
         }
 
-        //Trae la cantidad maxima de visitantes que tiene la sede actual <-----Cambiar
+        //Trae la cantidad maxima de visitantes que tiene la sede actual 
         public int validarLimiteVisitantes() {
             int limite = sede.obtenerCantidadMaximaVisitantes(id_sede);
             return limite;
         }
 
-        //Trae la cantidad de entradas vendida en la fecha actual actual <-----Chequear
+        //Trae la cantidad de entradas vendida en la fecha actual actual 
         public int contarEntradasVendidas() {
             return sede.validarFechaEntradas(id_sede, getFechaActual());
         }
 
-        //Trae la cantidad de alumnos confirmados con reserva para la fecha actual <-----Chequear
+        //Trae la cantidad de alumnos confirmados con reserva para la fecha actual
         public int contarEntradasDeReserva()
         {
             return sede.obtenerEntradasDeReserva(id_sede, duracion);
@@ -98,6 +98,11 @@ namespace DSI_PPAI.Clases
             {
                 return false;
             }
+        }
+
+        public int calcularTotalAPagar(int precioEntrada, int montoGuia, int cantidadEntradas) {
+            int montoTotal = (precioEntrada + montoGuia) * cantidadEntradas;
+            return montoTotal;
         }
     }
 }

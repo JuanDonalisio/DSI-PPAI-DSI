@@ -60,6 +60,7 @@ namespace DSI_PPAI.Forms
             cmb_tipo_visita.CargarCombo(tipo_visita.GetTipoVisita());
             grid_tarifas.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
             grid_tarifa_seleccionada.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
+            grid_detalles.Formatear("Monto total,200; Precio por unidad,200; Cantidad de entradas,200");
             CargarGrilla(tablaDeTarifas);
         }
 
@@ -80,13 +81,32 @@ namespace DSI_PPAI.Forms
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-            if (gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text)))
+            if (grid_tarifa_seleccionada.Rows.Count != 0)
             {
-                MessageBox.Show("Todo ok");
+                if (gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text)))
+                {
+                    MessageBox.Show("Todo ok");
+                    int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
+                    int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
+                    int cantEntradas = int.Parse(txt_cantidad.Text);
+                    int montoTotal = gestor.calcularTotalAPagar(precioEntrada,montoGuia,cantEntradas);
+                    grid_detalles.Rows.Clear();
+                    grid_detalles.Rows.Add();
+                    grid_detalles.Rows[0].Cells[0].Value = montoTotal;
+                    grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                    grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
+
+                }
+                else
+                {
+                    MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+                }
             }
-            else {
-                MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+            else
+            {
+                MessageBox.Show("No ha seleccionado ninguna tarifa");
             }
+            
         }
 
         private void cmb_tipo_entrada_SelectionChangeCommitted(object sender, EventArgs e)
@@ -129,6 +149,7 @@ namespace DSI_PPAI.Forms
         //Carga en la segunda grilla la tarifa que seleccionamos
         private void button1_Click(object sender, EventArgs e)
         {
+            grid_tarifa_seleccionada.Rows.Clear();
             int i = grid_tarifas.CurrentRow.Index;
             grid_tarifa_seleccionada.Rows.Add();
             grid_tarifa_seleccionada.Rows[0].Cells[0].Value = grid_tarifas.Rows[i].Cells[0].Value;
@@ -136,6 +157,11 @@ namespace DSI_PPAI.Forms
             grid_tarifa_seleccionada.Rows[0].Cells[2].Value = grid_tarifas.Rows[i].Cells[2].Value;
             grid_tarifa_seleccionada.Rows[0].Cells[3].Value = grid_tarifas.Rows[i].Cells[3].Value;
             gestor.tomarSeleccionTarifa();
+        }
+
+        private void grid_detalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

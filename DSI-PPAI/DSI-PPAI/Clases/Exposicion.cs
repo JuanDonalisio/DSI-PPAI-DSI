@@ -14,15 +14,15 @@ namespace DSI_PPAI.Clases
         Acceso_Datos _BD = new Acceso_Datos();
         DetalleExposicion de = new DetalleExposicion();
         public bool esVigenteExposicion(string id_exposicion, string fechaActual) {
-            string sql = "SELECT fechaInicio, fechaFin, fechaInicioReplanificada, fechaFinReplanificada, horaApertura, horaCierre" +
+            string sql = "SELECT fechaInicio, fechaFin, fechaInicioReplanificada, fechaFinReplanificada, horaApertura, horaCierre FROM Exposicion" +
                          " WHERE id_exposicion = " + id_exposicion;
             DataTable tablaFechas = _BD.EjecutarSelect(sql);
-            string fechaInicio = tablaFechas.Rows[0][1].ToString();
-            string fechaFin = tablaFechas.Rows[0][2].ToString();
-            string fechaInicioReplanificada = tablaFechas.Rows[0][3].ToString();
-            string fechaFinReplanificada = tablaFechas.Rows[0][4].ToString();
-            string hora_Inicio = tablaFechas.Rows[0][5].ToString();
-            string hora_Cierre = tablaFechas.Rows[0][6].ToString();
+            string fechaInicio = tablaFechas.Rows[0][0].ToString();
+            string fechaFin = tablaFechas.Rows[0][1].ToString();
+            string fechaInicioReplanificada = tablaFechas.Rows[0][2].ToString();
+            string fechaFinReplanificada = tablaFechas.Rows[0][3].ToString();
+            string hora_Inicio = tablaFechas.Rows[0][4].ToString();
+            string hora_Cierre = tablaFechas.Rows[0][5].ToString();
 
             string[] subcadenaFechaYHora = fechaActual.Split(' ');
             string[] subcadenaFechaActual = subcadenaFechaYHora[0].Split('/');

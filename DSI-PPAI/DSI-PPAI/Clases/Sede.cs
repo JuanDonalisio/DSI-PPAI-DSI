@@ -74,7 +74,7 @@ namespace DSI_PPAI.Clases
 
         public int obtenerCantidadMaximaVisitantes(string id_sede) {
             string sql = "SELECT cant_max_visitantes FROM Sede WHERE id_sede =" + id_sede;
-            int max = Int32.Parse(_BD.EjecutarSelect(sql).ToString());
+            int max = int.Parse(_BD.EjecutarSelect(sql).Rows[0][0].ToString());
             return max;
         }
 

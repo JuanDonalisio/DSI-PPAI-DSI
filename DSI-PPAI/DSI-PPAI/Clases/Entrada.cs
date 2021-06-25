@@ -7,6 +7,8 @@ using DSI_PPAI.DBconection;
 using DSI_PPAI.ClasesAuxiliares;
 using DSI_PPAI.DBconection;
 using System.Data;
+using System.Windows.Forms;
+
 
 namespace DSI_PPAI.Clases
 {
@@ -24,8 +26,8 @@ namespace DSI_PPAI.Clases
             string[] subcadenasFechaActual = subcadenasFechaYHoraActual[0].Split('/');
 
             string[] subcadenasFechaYHoraEntrada = fechaEntrada.Split(' ');
-            string[] subcadenasFechaEntrada = subcadenasFechaYHoraActual[0].Split('/');
-
+            string[] subcadenasFechaEntrada = subcadenasFechaYHoraEntrada[0].Split('/');
+            
             int anio = int.Parse(subcadenasFechaActual[2]);
             int bnio = Convert.ToInt32(subcadenasFechaEntrada[2]);
 
@@ -58,6 +60,21 @@ namespace DSI_PPAI.Clases
             {
                 return false;
             }
+        }
+
+        public int getNro(string id_sede)
+        {
+            string sql = "SELECT id_entrada FROM Entrada WHERE id_sede = " + id_sede;
+            DataTable tabla = _bd.EjecutarSelect(sql);
+            int maximo = 0;
+            for (int i = 0; i < tabla.Rows.Count; i++)
+            {
+                if(maximo < int.Parse(tabla.Rows[i][0].ToString()))
+                {
+                    maximo = int.Parse(tabla.Rows[i][0].ToString());
+                }
+            }
+            return maximo+1;
         }
     }
 }

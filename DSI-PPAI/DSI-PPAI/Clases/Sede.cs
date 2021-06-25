@@ -112,8 +112,6 @@ namespace DSI_PPAI.Clases
         public int[] obtenerDuracionExposicionesVigentes(string id_sede, string fechaActual) {
             string sql = "SELECT id_exposicion FROM Exposiciones_X_Sede WHERE id_sede = " + id_sede;
             DataTable id_exposiciones = _BD.EjecutarSelect(sql);
-            DataTable tablaExposiciones = new DataTable();
-
 
             int[] contador = new int[3];
             for (int i = 0; i < id_exposiciones.Rows.Count; i++)

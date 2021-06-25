@@ -15,7 +15,7 @@ namespace DSI_PPAI.Clases
         //Si la fecha de la reserva es igual a la fecha actual devuelve true
         public bool estaEnFecha(System.Data.DataRow fila) {
             string sql = "SELECT getDate()";
-            string fechaActual = _bd.EjecutarSelect(sql).ToString();
+            string fechaActual = _bd.EjecutarSelect(sql).Rows[0][0].ToString();
             string fechaReserva = fila[3].ToString();
 
             string[] subcadenaFechaYHoraActual = fechaActual.Split(' ');
@@ -35,18 +35,70 @@ namespace DSI_PPAI.Clases
         //No se we
         public bool estaEnRangoDuracion(System.Data.DataRow fila, int[]duracion)
         {
-            //La hora de inicio esta dentro de la fechaHoraReserva
-            //La hora de fin es la hora de inicio + la duracionEstimada
+            bool banderaInicio = false;
+            bool banderaFin = true;
 
-            //Recuperar fecha actual para tener una hora de inicio de la visita
-            //la hora de fin sería la hora de inicio de la visita + la duración que pasamos por parámetro
-            return true;
+            string sqlFecha = "SELECT GETDATE()";
+            string fechaActual = _bd.EjecutarSelect(sqlFecha).Rows[0][0].ToString();
+
+            string[] subcadenaFechaYHoraActual = fechaActual.Split(' ');
+            //Hora actual, o sea la hora inicio de la entrada
+            string[] subcadenaHoraActual = subcadenaFechaYHoraActual[1].Split(':');
+
+            int horaFinEntrada = int.Parse(subcadenaHoraActual[0]) + duracion[0];
+            int minutoFinEntrada = int.Parse(subcadenaHoraActual[1]) + duracion[1];
+            int segundoFinEntrada = int.Parse(subcadenaHoraActual[2]) + duracion[2];
+            
+            string fechaHoraReserva = fila[3].ToString();
+            string[] subcadenaFechaYHoraReserva = fechaHoraReserva.Split(' ');
+            string[] subcadenaHoraReserva = subcadenaFechaYHoraReserva[1].Split(':');
+
+            string duracionEstimada = fila[2].ToString();
+            //Hora inicio de reserva
+            string[] subcadenaDuracionEstimada = duracionEstimada.Split(':');
+
+            int horaFinReserva = int.Parse(subcadenaHoraReserva[0]) + int.Parse(subcadenaDuracionEstimada[0]);
+            int minutoFinReserva = int.Parse(subcadenaHoraReserva[1]) + int.Parse(subcadenaDuracionEstimada[1]);
+            int segundoFinReserva = int.Parse(subcadenaHoraReserva[2]) + int.Parse(subcadenaDuracionEstimada[2]);
+
+            //Me fijo si la hora:minuto:segundo actual esta dentro de una reserva en transcurso
+            //O sea que la hora actual esta entre la hora de inicio y de fin de una reserva
+            if(int.Parse(subcadenaDuracionEstimada[0]) <= horaFinEntrada && horaFinEntrada <= horaFinReserva)
+            {
+                if(int.Parse(subcadenaDuracionEstimada[1]) <= minutoFinEntrada && minutoFinEntrada <= minutoFinReserva)
+                {
+                    if (int.Parse(subcadenaDuracionEstimada[2]) <= segundoFinEntrada && segundoFinEntrada <= segundoFinReserva)
+                    {
+                        banderaFin = true;
+                    }
+                }
+            }
+
+            if (int.Parse(subcadenaDuracionEstimada[0]) <= int.Parse(subcadenaHoraActual[0]) && int.Parse(subcadenaHoraActual[0]) <= horaFinReserva)
+            {
+                if (int.Parse(subcadenaDuracionEstimada[1]) <= int.Parse(subcadenaHoraActual[1]) && int.Parse(subcadenaHoraActual[1]) <= minutoFinReserva)
+                {
+                    if (int.Parse(subcadenaDuracionEstimada[2]) <= int.Parse(subcadenaHoraActual[2]) && int.Parse(subcadenaHoraActual[2]) <= segundoFinReserva)
+                    {
+                        banderaInicio = true;
+                    }
+                }
+            }
+
+            if(banderaInicio || banderaFin)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         //Devuelve los alumnos confirmados de la fila pasada por parametro la cual esta en fecha actual y en rango de duracion
         //Chequear que este bien esto
         public int getAlumnosConfirmados(System.Data.DataRow fila) {
-            return int.Parse(fila[2].ToString());
+            return int.Parse(fila[1].ToString());
         }
     }
 }

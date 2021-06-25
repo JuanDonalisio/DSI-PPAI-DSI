@@ -56,8 +56,6 @@ namespace DSI_PPAI.Forms
             //    }
             //}
             //cmb_tipo_entrada.CargarComboTipoEntrada(tablaSinRepetidosEntrada);
-            cmb_tipo_entrada.CargarCombo(tipo_entrada.GetTipoEntrada());
-            cmb_tipo_visita.CargarCombo(tipo_visita.GetTipoVisita());
             grid_tarifas.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
             grid_tarifa_seleccionada.Formatear("Tipo de Entrada,200; Tipo de Visita,200; Monto,200; Monto Adicional por Guía,200");
             grid_detalles.Formatear("Monto total,200; Precio por unidad,200; Cantidad de entradas,200");
@@ -85,7 +83,6 @@ namespace DSI_PPAI.Forms
             {
                 if (gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text)))
                 {
-                    MessageBox.Show("Todo ok");
                     int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
                     int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
                     int cantEntradas = int.Parse(txt_cantidad.Text);
@@ -93,7 +90,15 @@ namespace DSI_PPAI.Forms
                     grid_detalles.Rows.Clear();
                     grid_detalles.Rows.Add();
                     grid_detalles.Rows[0].Cells[0].Value = montoTotal;
-                    grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                    if(cb_guia.Checked == true)
+                    {
+                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                    }
+                    else
+                    {
+                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada;
+                    }
+                    
                     grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
 
                 }
@@ -159,9 +164,36 @@ namespace DSI_PPAI.Forms
             gestor.tomarSeleccionTarifa();
         }
 
-        private void grid_detalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_cancelar_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("¿Seguro que desea cancelar la venta?", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
+        private void grid_tarifa_seleccionada_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("¿Desea borrar la tarifa seleccionada?", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                grid_tarifa_seleccionada.Rows.Remove(grid_tarifa_seleccionada.CurrentRow);
+                if(grid_detalles.Rows.Count != 0)
+                {
+                    grid_detalles.Rows.Clear();
+                }
+            }
+        }
+
+        private void Confirmar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea confirmar la venta?", "Importante", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = 0; i < int.Parse(txt_cantidad.Text); i++)
+                {
+                    gestor.confirmarVenta(grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), grid_detalles.Rows[0].Cells[1].Value.ToString());
+                    this.Close();
+                }
+            }
         }
     }
 }

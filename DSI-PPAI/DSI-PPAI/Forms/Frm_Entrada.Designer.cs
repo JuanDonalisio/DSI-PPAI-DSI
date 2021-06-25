@@ -28,19 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.reporte_entrada = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
+            // 
+            // reporte_entrada
+            // 
+            this.reporte_entrada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reporte_entrada.LocalReport.ReportEmbeddedResource = "DSI_PPAI.Forms.Report1.rdlc";
+            this.reporte_entrada.Location = new System.Drawing.Point(0, 0);
+            this.reporte_entrada.Name = "reporte_entrada";
+            this.reporte_entrada.ServerReport.BearerToken = null;
+            this.reporte_entrada.Size = new System.Drawing.Size(785, 476);
+            this.reporte_entrada.TabIndex = 0;
             // 
             // Frm_Entrada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 707);
+            this.ClientSize = new System.Drawing.Size(785, 476);
+            this.Controls.Add(this.reporte_entrada);
             this.Name = "Frm_Entrada";
-            this.Text = "Frm_Entrada";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Entrada";
+            this.Load += new System.EventHandler(this.Frm_Entrada_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reporte_entrada;
     }
 }

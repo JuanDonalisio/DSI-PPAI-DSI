@@ -107,11 +107,11 @@ namespace DSI_PPAI.Clases
             return montoTotal;
         }
 
-        public void confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
+        public int confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
         {
             int nro_entrada = buscarUltimoNroEntrada();
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
-
+            return nro_entrada;
         }
 
         private int buscarUltimoNroEntrada()
@@ -133,6 +133,14 @@ namespace DSI_PPAI.Clases
             string sqlEntrada = @"INSERT INTO Entrada (fechaVenta, horaVenta, monto, id_entrada, id_sede, id_tarifa) 
                          VALUES ('" + subcadenaFechaActual[2] + "/" + subcadenaFechaActual[1] + "/" + subcadenaFechaActual[0] + "', '" + subcadenaFechaYHoraActual[1] + "', " + monto + ", " + nro_entrada + ", " + id_sede + ", " + id_tarifa + ")";
             _BD.Insertar(sqlEntrada);
+        }
+
+        public void imprimirEntradas(DataTable tabla, bool guia)
+        {
+            Frm_Entrada form_entrada = new Frm_Entrada();
+            form_entrada.guia = guia;
+            form_entrada.Tabla = tabla;
+            form_entrada.ShowDialog();
         }
     }
 }

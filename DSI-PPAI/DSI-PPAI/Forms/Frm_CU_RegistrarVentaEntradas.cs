@@ -15,6 +15,8 @@ namespace DSI_PPAI.Forms
 {
     public partial class Frm_CU_RegistrarVentaEntradas : Form
     {
+        public int nro_entrada { get; set; }
+        public bool entrada_vendida { get; set; }
         public string nombre_usuario { get; set; }
         EstructuraComboBox estructuraTipoEntrada = new EstructuraComboBox();
         EstructuraComboBox estructuraTipoVisita = new EstructuraComboBox();
@@ -30,6 +32,7 @@ namespace DSI_PPAI.Forms
 
         private void Frm_CU_RegistrarVentaEntradas_Load(object sender, EventArgs e)
         {
+            entrada_vendida = false;
             gestor.nombre_usuario = nombre_usuario;
             tablaDeTarifas = gestor.RegistrarVenta();
             TipoEntrada tipo_entrada = new TipoEntrada();
@@ -190,10 +193,27 @@ namespace DSI_PPAI.Forms
             {
                 for (int i = 0; i < int.Parse(txt_cantidad.Text); i++)
                 {
-                    gestor.confirmarVenta(grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), grid_detalles.Rows[0].Cells[1].Value.ToString());
+                    nro_entrada = gestor.confirmarVenta(grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), grid_detalles.Rows[0].Cells[1].Value.ToString());
+                    entrada_vendida = true;
                     this.Close();
                 }
             }
+        }
+
+        private void Frm_CU_RegistrarVentaEntradas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(entrada_vendida)
+            {
+                DataTable tabla = new DataTable();
+                tabla.Columns.Add("id_entrada", typeof(Int64));
+                tabla.Columns.Add("nombre_tipo_entrada", typeof(String));
+                tabla.Columns.Add("nombre_tipo_visita", typeof(String));
+                tabla.Columns.Add("monto_unitario", typeof(Int64));
+                tabla.Rows.Add(nro_entrada, grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), int.Parse(grid_detalles.Rows[0].Cells[1].Value.ToString()));
+
+                gestor.imprimirEntradas(tabla, cb_guia.Checked);
+            }
+            
         }
     }
 }

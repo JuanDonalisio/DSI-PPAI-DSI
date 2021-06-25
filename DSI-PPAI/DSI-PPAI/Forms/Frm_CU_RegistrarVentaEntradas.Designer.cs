@@ -183,7 +183,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(108)))), ((int)(((byte)(44)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1026, 774);
+            this.ClientSize = new System.Drawing.Size(862, 698);
             this.Controls.Add(this.cb_guia);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.Confirmar);
@@ -199,6 +199,7 @@
             this.Name = "Frm_CU_RegistrarVentaEntradas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Venta de Entradas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_CU_RegistrarVentaEntradas_FormClosed);
             this.Load += new System.EventHandler(this.Frm_CU_RegistrarVentaEntradas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_detalles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifa_seleccionada)).EndInit();

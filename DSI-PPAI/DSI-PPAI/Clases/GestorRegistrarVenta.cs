@@ -92,20 +92,17 @@ namespace DSI_PPAI.Clases
         la cantidad de entradas vendidas en el día sumado a la cantidad de personas
         que están o van a estar en el museo por una visita durante la duracion 
         de la entrada vendida*/
-        public bool tomarCantidadDeEntradas(int cantidad_entradas_a_comprar)
+        public int[] tomarCantidadDeEntradas(int cantidad_entradas_a_comprar)
         {
             int cant_max = validarLimiteVisitantes();
             int entradas_vendidas = contarEntradasVendidas();
             int entradas_reserva = contarEntradasDeReserva();
-            
-            if(cant_max >= (entradas_reserva + entradas_vendidas + cantidad_entradas_a_comprar))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            int total_actual = entradas_reserva + entradas_vendidas + cantidad_entradas_a_comprar;
+
+            int[] array = new int[2];
+            array[0] = cant_max;
+            array[1] = total_actual;
+            return array;
         }
 
         public int calcularTotalAPagar(int precioEntrada, int montoGuia, int cantidadEntradas) {
@@ -118,7 +115,6 @@ namespace DSI_PPAI.Clases
             int nro_entrada = buscarUltimoNroEntrada();
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
             return nro_entrada;
-
         }
 
         private int buscarUltimoNroEntrada()
@@ -144,11 +140,9 @@ namespace DSI_PPAI.Clases
 
         public void imprimirEntradas(DataTable tabla, bool guia, int i)
         {
-            Frm_Entrada form_entrada = new Frm_Entrada();
-            form_entrada.i = i;
-            form_entrada.guia = guia;
-            form_entrada.Tabla = tabla;
-            form_entrada.ShowDialog();
+            ImpresorEntradas impresor_entrada = new ImpresorEntradas();
+            impresor_entrada.New(tabla, guia, i);
+
         }
     }
 }

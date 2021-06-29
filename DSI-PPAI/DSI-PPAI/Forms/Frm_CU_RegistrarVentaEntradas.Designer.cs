@@ -199,7 +199,6 @@
             this.Name = "Frm_CU_RegistrarVentaEntradas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Venta de Entradas";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_CU_RegistrarVentaEntradas_FormClosed);
             this.Load += new System.EventHandler(this.Frm_CU_RegistrarVentaEntradas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_detalles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifa_seleccionada)).EndInit();

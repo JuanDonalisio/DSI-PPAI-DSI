@@ -10,6 +10,7 @@ using System.Data;
 using System.Windows.Forms;
 
 
+
 namespace DSI_PPAI.Clases
 {
     class Entrada
@@ -76,5 +77,7 @@ namespace DSI_PPAI.Clases
             }
             return maximo+1;
         }
+
+
     }
 }

@@ -15,10 +15,10 @@ namespace DSI_PPAI.Forms
 {
     public partial class Frm_CU_RegistrarVentaEntradas : Form
     {
+        public int[] cant_max_y_total { get; set; }
         public int nro_entrada { get; set; }
         public bool entrada_vendida { get; set; }
         public string nombre_usuario { get; set; }
-        public int iteracion { get; set; }
         EstructuraComboBox estructuraTipoEntrada = new EstructuraComboBox();
         EstructuraComboBox estructuraTipoVisita = new EstructuraComboBox();
         public string id_usuario { get; set; }
@@ -65,7 +65,8 @@ namespace DSI_PPAI.Forms
         {
             if (grid_tarifa_seleccionada.Rows.Count != 0)
             {
-                if (gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text)))
+                cant_max_y_total = gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text));
+                if (cant_max_y_total[1] <= cant_max_y_total[0])
                 {
                     int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
                     int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
@@ -149,27 +150,20 @@ namespace DSI_PPAI.Forms
                 for (int i = 0; i < int.Parse(txt_cantidad.Text); i++)
                 {
                     nro_entrada = gestor.confirmarVenta(grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), grid_detalles.Rows[0].Cells[1].Value.ToString());
-                    iteracion = i;
-                    entrada_vendida = true;
-                    this.Close();
+                    DataTable tabla = new DataTable();
+                    tabla.Columns.Add("id_entrada", typeof(Int64));
+                    tabla.Columns.Add("nombre_tipo_entrada", typeof(String));
+                    tabla.Columns.Add("nombre_tipo_visita", typeof(String));
+                    tabla.Columns.Add("monto_unitario", typeof(Int64));
+                    tabla.Rows.Add(nro_entrada, grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), int.Parse(grid_detalles.Rows[0].Cells[1].Value.ToString()));
+                    gestor.imprimirEntradas(tabla, cb_guia.Checked, i);
                 }
+                this.Close();
+                Frm_Pantalla_Cantidad_Personas pantalla = new Frm_Pantalla_Cantidad_Personas();
+                pantalla.total_actual = cant_max_y_total[1];
+                pantalla.cant_max = cant_max_y_total[0];
+                pantalla.ShowDialog();
             }
-        }
-
-        private void Frm_CU_RegistrarVentaEntradas_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if(entrada_vendida)
-            {
-                DataTable tabla = new DataTable();
-                tabla.Columns.Add("id_entrada", typeof(Int64));
-                tabla.Columns.Add("nombre_tipo_entrada", typeof(String));
-                tabla.Columns.Add("nombre_tipo_visita", typeof(String));
-                tabla.Columns.Add("monto_unitario", typeof(Int64));
-                tabla.Rows.Add(nro_entrada, grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), int.Parse(grid_detalles.Rows[0].Cells[1].Value.ToString()));
-                gestor.imprimirEntradas(tabla, cb_guia.Checked, iteracion);
-
-            }
-            
         }
     }
 }

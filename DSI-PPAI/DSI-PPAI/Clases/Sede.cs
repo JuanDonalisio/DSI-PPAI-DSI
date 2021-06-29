@@ -98,8 +98,12 @@ namespace DSI_PPAI.Clases
             int cantidad = 0;
             for (int i = 0; i < reservas.Rows.Count; i++)
             {
-                if(reservaVisita.estaEnFecha(reservas.Rows[i]) == true && reservaVisita.estaEnRangoDuracion(reservas.Rows[i], duracion) == true){
-                    cantidad = cantidad + reservaVisita.getAlumnosConfirmados(reservas.Rows[i]);
+                if(reservaVisita.estaEnFecha(reservas.Rows[i]) == true)
+                {
+                    if (reservaVisita.estaEnRangoDuracion(reservas.Rows[i], duracion) == true)
+                    {
+                        cantidad = cantidad + reservaVisita.getAlumnosConfirmados(reservas.Rows[i]);
+                    }
                 }
             }
             return cantidad;

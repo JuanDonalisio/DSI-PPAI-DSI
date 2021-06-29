@@ -32,11 +32,11 @@ namespace DSI_PPAI.Clases
             
         }
 
-        //No se we
+        //Verifica si la duración de la entrada vendida está dentro del rango horario de una visita
         public bool estaEnRangoDuracion(System.Data.DataRow fila, int[]duracion)
         {
             bool banderaInicio = false;
-            bool banderaFin = true;
+            bool banderaFin = false;
 
             string sqlFecha = "SELECT GETDATE()";
             string fechaActual = _bd.EjecutarSelect(sqlFecha).Rows[0][0].ToString();
@@ -45,40 +45,104 @@ namespace DSI_PPAI.Clases
             //Hora actual, o sea la hora inicio de la entrada
             string[] subcadenaHoraActual = subcadenaFechaYHoraActual[1].Split(':');
 
+            //Hora, minuto y segundo de fin de la entrada
             int horaFinEntrada = int.Parse(subcadenaHoraActual[0]) + duracion[0];
             int minutoFinEntrada = int.Parse(subcadenaHoraActual[1]) + duracion[1];
             int segundoFinEntrada = int.Parse(subcadenaHoraActual[2]) + duracion[2];
             
+            
             string fechaHoraReserva = fila[3].ToString();
             string[] subcadenaFechaYHoraReserva = fechaHoraReserva.Split(' ');
+            //Hora, minuto y segundo del inicio de la reserva
             string[] subcadenaHoraReserva = subcadenaFechaYHoraReserva[1].Split(':');
 
             string duracionEstimada = fila[2].ToString();
-            //Hora inicio de reserva
             string[] subcadenaDuracionEstimada = duracionEstimada.Split(':');
 
+            //Hora, minuto y segundo del fin de la reserva
             int horaFinReserva = int.Parse(subcadenaHoraReserva[0]) + int.Parse(subcadenaDuracionEstimada[0]);
             int minutoFinReserva = int.Parse(subcadenaHoraReserva[1]) + int.Parse(subcadenaDuracionEstimada[1]);
             int segundoFinReserva = int.Parse(subcadenaHoraReserva[2]) + int.Parse(subcadenaDuracionEstimada[2]);
 
             //Me fijo si la hora:minuto:segundo actual esta dentro de una reserva en transcurso
             //O sea que la hora actual esta entre la hora de inicio y de fin de una reserva
-            if(int.Parse(subcadenaDuracionEstimada[0]) <= horaFinEntrada && horaFinEntrada <= horaFinReserva)
+
+            if (segundoFinReserva >= 60)
             {
-                if(int.Parse(subcadenaDuracionEstimada[1]) <= minutoFinEntrada && minutoFinEntrada <= minutoFinReserva)
+                int numero = (segundoFinReserva / 60);
+                minutoFinReserva += numero;
+                segundoFinReserva = segundoFinReserva % 60;
+            }
+            if (minutoFinReserva >= 60)
+            {
+                int numero = (minutoFinReserva / 60);
+                horaFinReserva += numero;
+                minutoFinReserva = minutoFinReserva % 60;
+            }
+
+
+            if (segundoFinEntrada >= 60)
+            {
+                int numero = (segundoFinEntrada / 60);
+                minutoFinEntrada += numero;
+                segundoFinEntrada = segundoFinEntrada % 60;
+            }
+            if (minutoFinEntrada >= 60)
+            {
+                int numero = (minutoFinEntrada / 60);
+                horaFinEntrada += numero;
+                minutoFinEntrada = minutoFinEntrada % 60;
+            }
+
+
+            if (int.Parse(subcadenaHoraActual[2]) >= 60)
+            {
+                int numero = (int.Parse(subcadenaHoraActual[2]) / 60);
+                subcadenaHoraActual[1] = (int.Parse(subcadenaHoraActual[1]) + numero).ToString();
+                subcadenaHoraActual[2] = (int.Parse(subcadenaHoraActual[2]) % 60).ToString();
+            }
+            if (int.Parse(subcadenaHoraActual[1]) >= 60)
+            {
+                int numero = (int.Parse(subcadenaHoraActual[1]) / 60);
+                subcadenaHoraActual[0] = (int.Parse(subcadenaHoraActual[0]) + numero).ToString();
+                subcadenaHoraActual[1] = (int.Parse(subcadenaHoraActual[1]) % 60).ToString();
+            }
+
+
+            if (int.Parse(subcadenaHoraReserva[2]) >= 60)
+            {
+                int numero = (int.Parse(subcadenaHoraReserva[2]) / 60);
+                subcadenaHoraReserva[1] = (int.Parse(subcadenaHoraReserva[1]) + numero).ToString();
+                subcadenaHoraReserva[2] = (int.Parse(subcadenaHoraReserva[2]) % 60).ToString();
+            }
+            if (int.Parse(subcadenaHoraReserva[1]) >= 60)
+            {
+                int numero = (int.Parse(subcadenaHoraReserva[1]) / 60);
+                subcadenaHoraReserva[0] = (int.Parse(subcadenaHoraReserva[0]) + numero).ToString();
+                subcadenaHoraReserva[1] = (int.Parse(subcadenaHoraReserva[1]) % 60).ToString();
+            }
+
+
+            // hora inicio reserva <= hora fin entrada <= hora fin reserva
+            if (int.Parse(subcadenaHoraReserva[0]) <= horaFinEntrada && horaFinEntrada <= horaFinReserva)
+            {
+                if(int.Parse(subcadenaHoraReserva[1]) <= minutoFinEntrada && minutoFinEntrada <= minutoFinReserva)
                 {
-                    if (int.Parse(subcadenaDuracionEstimada[2]) <= segundoFinEntrada && segundoFinEntrada <= segundoFinReserva)
+                    if (int.Parse(subcadenaHoraReserva[2]) <= segundoFinEntrada && segundoFinEntrada <= segundoFinReserva)
                     {
                         banderaFin = true;
                     }
                 }
             }
 
-            if (int.Parse(subcadenaDuracionEstimada[0]) <= int.Parse(subcadenaHoraActual[0]) && int.Parse(subcadenaHoraActual[0]) <= horaFinReserva)
+
+            //hora inicio reserva <= hora actual <= hora fin reserva
+
+            if (int.Parse(subcadenaHoraReserva[0]) <= int.Parse(subcadenaHoraActual[0]) && int.Parse(subcadenaHoraActual[0]) <= horaFinReserva)
             {
-                if (int.Parse(subcadenaDuracionEstimada[1]) <= int.Parse(subcadenaHoraActual[1]) && int.Parse(subcadenaHoraActual[1]) <= minutoFinReserva)
+                if (int.Parse(subcadenaHoraReserva[1]) <= int.Parse(subcadenaHoraActual[1]) && int.Parse(subcadenaHoraActual[1]) <= minutoFinReserva)
                 {
-                    if (int.Parse(subcadenaDuracionEstimada[2]) <= int.Parse(subcadenaHoraActual[2]) && int.Parse(subcadenaHoraActual[2]) <= segundoFinReserva)
+                    if (int.Parse(subcadenaHoraReserva[2]) <= int.Parse(subcadenaHoraActual[2]) && int.Parse(subcadenaHoraActual[2]) <= segundoFinReserva)
                     {
                         banderaInicio = true;
                     }

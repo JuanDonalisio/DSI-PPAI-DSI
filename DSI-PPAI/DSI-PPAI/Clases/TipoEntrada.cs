@@ -25,9 +25,9 @@ namespace DSI_PPAI.Clases
             return edc;
         }
 
+        //Recupero el id y nombre del tipo de entrada asociado al id de la tarifa
         public string getNombreTipoEntrada(string id_tarifa)
         {
-            //Recupero el id y nombre del tipo de entrada asociado al id de la tarifa
             string sql = "SELECT t.id_tipo_entrada, te.nombre as nombre_tipo_entrada FROM Tarifa t " +
                          "JOIN TipoDeEntrada te on t.id_tipo_entrada = te.id_tipo_entrada " +
                          "WHERE t.id_tarifa = " + id_tarifa + 

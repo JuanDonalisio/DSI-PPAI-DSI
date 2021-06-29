@@ -25,9 +25,9 @@ namespace DSI_PPAI.Clases
             return edc;
         }
 
+        //Recupero el id y nombre del tipo de visita asociado al id de la tarifa
         public string getNombreTipoVisita(string id_tarifa)
         {
-            //Recupero el id y nombre del tipo de visita asociado al id de la tarifa
             string sql = "SELECT t.id_tipo_visita, tv.nombre as nombre_tipo_visita FROM Tarifa t " +
                          "JOIN TipoDeVisita tv on t.id_tipo_visita = tv.id_tipo_visita " +
                          "WHERE t.id_tarifa = " + id_tarifa;

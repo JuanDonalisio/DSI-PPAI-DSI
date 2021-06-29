@@ -113,13 +113,15 @@ namespace DSI_PPAI.Clases
             //}
         }
 
-
+        //Devuelve el monto y monto adicional por guía de la tarifa que tiene id igual al que le pasamos por parámetro
         public string getTarifa(string id_tarifa)
         {
             TipoEntrada tipoEntrada = new TipoEntrada();
             TipoVisita tipoVisita = new TipoVisita();
             string sql = "SELECT monto, montoAdicional FROM Tarifa WHERE id_tarifa = " + id_tarifa;
             DataTable tabla = _bd.EjecutarSelect(sql);
+
+            //Para la misma tarifa obtengo el tipo de entrada y tipo de visita
             string tarifa = "";
             string nombreEntrada= tipoEntrada.getNombreTipoEntrada(id_tarifa);
             string nombreVisita = tipoVisita.getNombreTipoVisita(id_tarifa);

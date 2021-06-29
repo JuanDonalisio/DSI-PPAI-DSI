@@ -10,6 +10,7 @@ namespace DSI_PPAI.Clases
     class Obra
     {
         Acceso_Datos _BD = new Acceso_Datos();
+        //Devuelve la duración resumida de todas las obras pasadas por parámetro en formato hora:minuto:segundo
         public int[] getDuracionResumida(System.Data.DataTable id_obras)
         {
             int[] contador = new int[3];

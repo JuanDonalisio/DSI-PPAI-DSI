@@ -13,6 +13,7 @@ namespace DSI_PPAI.Clases
     {
         Acceso_Datos _BD = new Acceso_Datos();
         DetalleExposicion de = new DetalleExposicion();
+        //Devuelve true si la exposicion es vigente
         public bool esVigenteExposicion(string id_exposicion, string fechaActual) {
             string sql = "SELECT fechaInicio, fechaFin, fechaInicioReplanificada, fechaFinReplanificada, horaApertura, horaCierre FROM Exposicion" +
                          " WHERE id_exposicion = " + id_exposicion;

@@ -23,6 +23,7 @@ namespace DSI_PPAI.Clases
         Empleado empleado = new Empleado();
         Sede sede = new Sede();
 
+        //Devuelve una tabla con todas las tarifas vigentes
         public DataTable RegistrarVenta()
         {
             Pp_legajo = buscarUsuarioLogueado();
@@ -39,7 +40,6 @@ namespace DSI_PPAI.Clases
         //Se obtiene el legajo del empleado que tiene usuario logueado
         public string buscarUsuarioLogueado()
         {
-            
             return sesion.getUsuario(nombre_usuario);
         }
 
@@ -80,12 +80,18 @@ namespace DSI_PPAI.Clases
             return sede.obtenerEntradasDeReserva(id_sede, duracion);
         }
 
+        /*Devuelve un array con la duracion en formato hora:minuto:segundo 
+        de la visita completa al museo*/
         public int[] tomarSeleccionTarifa() {
 
             duracion = calcularDuracionAExposicionesVigentes();
             return duracion;
         }
 
+        /*Valida que la cantidad de entradas que se quiere vender no supera 
+        la cantidad de entradas vendidas en el día sumado a la cantidad de personas
+        que están o van a estar en el museo por una visita durante la duracion 
+        de la entrada vendida*/
         public bool tomarCantidadDeEntradas(int cantidad_entradas_a_comprar)
         {
             int cant_max = validarLimiteVisitantes();
@@ -112,6 +118,7 @@ namespace DSI_PPAI.Clases
             int nro_entrada = buscarUltimoNroEntrada();
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
             return nro_entrada;
+
         }
 
         private int buscarUltimoNroEntrada()
@@ -135,9 +142,10 @@ namespace DSI_PPAI.Clases
             _BD.Insertar(sqlEntrada);
         }
 
-        public void imprimirEntradas(DataTable tabla, bool guia)
+        public void imprimirEntradas(DataTable tabla, bool guia, int i)
         {
             Frm_Entrada form_entrada = new Frm_Entrada();
+            form_entrada.i = i;
             form_entrada.guia = guia;
             form_entrada.Tabla = tabla;
             form_entrada.ShowDialog();

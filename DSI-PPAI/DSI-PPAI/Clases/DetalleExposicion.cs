@@ -10,6 +10,8 @@ namespace DSI_PPAI.Clases
     {
         Acceso_Datos _bd = new Acceso_Datos();
         Obra obra = new Obra();
+
+        //Devuelve la duracion resumida de todas las obras asociadas a todos los detalles de una exposición
         public int[] getDetalleExposicion(string id_exposicion)
         {
             string sql = "SELECT id_obra FROM DetalleExposicion WHERE id_exposicion ="+ id_exposicion;

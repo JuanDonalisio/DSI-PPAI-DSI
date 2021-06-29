@@ -204,7 +204,7 @@
             this.btn_cerrar_sesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cerrar_sesion.Location = new System.Drawing.Point(745, 12);
             this.btn_cerrar_sesion.Name = "btn_cerrar_sesion";
-            this.btn_cerrar_sesion.Size = new System.Drawing.Size(178, 26);
+            this.btn_cerrar_sesion.Size = new System.Drawing.Size(178, 34);
             this.btn_cerrar_sesion.TabIndex = 8;
             this.btn_cerrar_sesion.UseVisualStyleBackColor = false;
             this.btn_cerrar_sesion.Click += new System.EventHandler(this.btn_cerrar_sesion_Click);
@@ -215,7 +215,7 @@
             this.btn_cerrar_programa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cerrar_programa.BackgroundImage")));
             this.btn_cerrar_programa.FlatAppearance.BorderSize = 0;
             this.btn_cerrar_programa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cerrar_programa.Location = new System.Drawing.Point(929, 5);
+            this.btn_cerrar_programa.Location = new System.Drawing.Point(929, 9);
             this.btn_cerrar_programa.Name = "btn_cerrar_programa";
             this.btn_cerrar_programa.Size = new System.Drawing.Size(41, 41);
             this.btn_cerrar_programa.TabIndex = 8;
@@ -234,7 +234,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(29, 12);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(93, 95);
+            this.pictureBox3.Size = new System.Drawing.Size(101, 95);
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 

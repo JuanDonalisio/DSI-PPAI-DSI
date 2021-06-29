@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.reporte_entrada = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.SuspendLayout();
             // 
             // reporte_entrada
@@ -38,16 +40,22 @@
             this.reporte_entrada.Location = new System.Drawing.Point(0, 0);
             this.reporte_entrada.Name = "reporte_entrada";
             this.reporte_entrada.ServerReport.BearerToken = null;
-            this.reporte_entrada.Size = new System.Drawing.Size(574, 327);
+            this.reporte_entrada.Size = new System.Drawing.Size(574, 273);
             this.reporte_entrada.TabIndex = 0;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 40;
+            this.bunifuElipse1.TargetControl = this;
             // 
             // Frm_Pantalla_Cantidad_Personas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 327);
+            this.ClientSize = new System.Drawing.Size(574, 273);
             this.ControlBox = false;
             this.Controls.Add(this.reporte_entrada);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_Pantalla_Cantidad_Personas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Frm_Entrada_Load);
@@ -58,5 +66,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reporte_entrada;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

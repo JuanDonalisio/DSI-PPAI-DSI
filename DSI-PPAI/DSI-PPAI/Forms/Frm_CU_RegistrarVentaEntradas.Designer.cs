@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_CU_RegistrarVentaEntradas));
+            this.components = new System.ComponentModel.Container();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.cargar_tarifa_seleccionada = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.grid_tarifa_seleccionada = new DSI_PPAI.ClasesAuxiliares.Grid01();
             this.grid_tarifas = new DSI_PPAI.ClasesAuxiliares.Grid01();
             this.cb_guia = new System.Windows.Forms.CheckBox();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grid_detalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifa_seleccionada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_tarifas)).BeginInit();
@@ -49,9 +50,9 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(125, 445);
+            this.btn_agregar.Location = new System.Drawing.Point(157, 445);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(75, 29);
+            this.btn_agregar.Size = new System.Drawing.Size(105, 29);
             this.btn_agregar.TabIndex = 5;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -62,7 +63,7 @@
             this.txt_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cantidad.Location = new System.Drawing.Point(11, 445);
             this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(100, 29);
+            this.txt_cantidad.Size = new System.Drawing.Size(119, 29);
             this.txt_cantidad.TabIndex = 6;
             // 
             // cargar_tarifa_seleccionada
@@ -70,7 +71,7 @@
             this.cargar_tarifa_seleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cargar_tarifa_seleccionada.Location = new System.Drawing.Point(157, 277);
             this.cargar_tarifa_seleccionada.Name = "cargar_tarifa_seleccionada";
-            this.cargar_tarifa_seleccionada.Size = new System.Drawing.Size(120, 29);
+            this.cargar_tarifa_seleccionada.Size = new System.Drawing.Size(105, 29);
             this.cargar_tarifa_seleccionada.TabIndex = 7;
             this.cargar_tarifa_seleccionada.Text = "Seleccionar";
             this.cargar_tarifa_seleccionada.UseVisualStyleBackColor = true;
@@ -177,13 +178,17 @@
             this.cb_guia.Text = "Visita guiada";
             this.cb_guia.UseVisualStyleBackColor = false;
             // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 40;
+            this.bunifuElipse1.TargetControl = this;
+            // 
             // Frm_CU_RegistrarVentaEntradas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(108)))), ((int)(((byte)(44)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(862, 698);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(152)))), ((int)(((byte)(100)))));
+            this.ClientSize = new System.Drawing.Size(862, 633);
             this.Controls.Add(this.cb_guia);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.Confirmar);
@@ -196,6 +201,7 @@
             this.Controls.Add(this.btn_agregar);
             this.Controls.Add(this.grid_tarifa_seleccionada);
             this.Controls.Add(this.grid_tarifas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Frm_CU_RegistrarVentaEntradas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Venta de Entradas";
@@ -221,5 +227,6 @@
         private System.Windows.Forms.Button Confirmar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.CheckBox cb_guia;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
     }
 }

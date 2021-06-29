@@ -20,7 +20,9 @@ namespace DSI_PPAI.Forms
 
         private void btn_cerrar_sesion_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose();
+            Login login = new Login();
+            login.ShowDialog();
         }
 
         private void btn_cerrar_programa_Click(object sender, EventArgs e)

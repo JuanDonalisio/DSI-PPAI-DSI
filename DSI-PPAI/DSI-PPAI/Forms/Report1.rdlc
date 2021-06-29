@@ -46,7 +46,7 @@
                   <TextRun>
                     <Value>=Parameters!RPRestriccion.Value</Value>
                     <Style>
-                      <FontSize>36pt</FontSize>
+                      <FontSize>72pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>

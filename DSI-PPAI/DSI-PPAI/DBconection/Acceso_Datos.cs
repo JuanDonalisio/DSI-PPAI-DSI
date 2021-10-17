@@ -14,7 +14,7 @@ namespace DSI_PPAI.DBconection
         public enum EstadoTransaccion { error, correcto }
         public enum TipoConexion { simple, transaccion }
 
-        string CadenaConexion = "Data Source='201.231.66.36, 1433';Initial Catalog=PPAI;User ID=PPAI;Password=3DECHOCLO";
+        string CadenaConexion = "Data Source='201.231.66.36';Initial Catalog=PPAI;User ID=PAVI;Password=jamon";
         SqlConnection Conexion = new SqlConnection();
         SqlCommand Cmd = new SqlCommand();
         SqlTransaction Transaction;

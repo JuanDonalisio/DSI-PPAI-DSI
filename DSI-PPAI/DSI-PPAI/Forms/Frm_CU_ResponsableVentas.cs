@@ -36,5 +36,15 @@ namespace DSI_PPAI.Forms
             registrarVenta.nombre_usuario = nombre_usuario;
             registrarVenta.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

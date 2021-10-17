@@ -165,5 +165,10 @@ namespace DSI_PPAI.Forms
                 pantalla.ShowDialog();
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

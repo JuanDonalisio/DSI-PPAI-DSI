@@ -164,7 +164,6 @@ C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\pt\Micros
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Cantidad_Personas.resources

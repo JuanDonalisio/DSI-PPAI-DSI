@@ -212,5 +212,8 @@
   <ItemGroup>
     <None Include="Resources\vistoo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PDF\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

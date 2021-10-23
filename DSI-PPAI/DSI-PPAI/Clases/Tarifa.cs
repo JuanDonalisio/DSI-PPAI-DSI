@@ -47,10 +47,14 @@ namespace DSI_PPAI.Clases
             int bdia = Convert.ToInt32(subcadenaFecha[0]);
             int cdia = Convert.ToInt32(subcadenaFechaFinVigencia[0]);
 
+
             bool banderaMayorInicio = false;
             bool banderaMenorFin = false;
-
-            if (anio <= bnio)
+            if (anio < bnio)
+            {
+                banderaMayorInicio = true;
+            }
+            if (anio == bnio)
             {
                 if (ames < bmes)
                 {
@@ -65,7 +69,11 @@ namespace DSI_PPAI.Clases
                 }
             }
 
-            if (bnio <= cnio)
+            if (bnio < cnio)
+            {
+                banderaMenorFin = true;
+            }
+            if (bnio == cnio)
             {
                 if (bmes < cmes)
                 {

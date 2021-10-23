@@ -47,7 +47,7 @@ namespace DSI_PPAI.Clases
 
             var bytes = reporte_entrada.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
 
-            string fileName = @"D:\\nano\\Facultad\\UTN\\TERCER AÑO\\DSI\\PPAI\\Entrada" + i + ".pdf";
+            string fileName = @"Entrada" + i + ".pdf";
             File.WriteAllBytes(fileName, bytes);
             System.Diagnostics.Process.Start(fileName);
 

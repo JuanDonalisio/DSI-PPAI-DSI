@@ -174,3 +174,6 @@ C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.cache
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.compiled

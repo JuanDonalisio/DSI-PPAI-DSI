@@ -15,6 +15,7 @@
                     <Value>CANTIDAD DE PERSONAS EN EL MUSEO</Value>
                     <Style>
                       <FontSize>20pt</FontSize>
+                      <Color>#1370cc</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -30,7 +31,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#c09d67</BackgroundColor>
+              <BackgroundColor>#2b3544</BackgroundColor>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
               <PaddingTop>2pt</PaddingTop>

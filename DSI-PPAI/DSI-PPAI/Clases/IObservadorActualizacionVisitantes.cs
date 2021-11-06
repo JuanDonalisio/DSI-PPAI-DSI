@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace DSI_PPAI.Clases
 {
-    class IObservadorActualizacionVisitantes
+    public interface IObservadorActualizacionVisitantes
     {
-        private void actualizarCantVisitantes(int cantidadVisitantes,int cantMaxVisitantes) {
-            //delegar a clases pantalla we
-        }
-
-
+        void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede);
     }
 }

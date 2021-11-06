@@ -8,8 +8,8 @@ namespace DSI_PPAI.Clases
 {
     public interface ISujeto
     {
-        //void suscribir(IObservadorActualizacionVisitantes observador);
-        //void quitar(IObservadorActualizacionVisitantes observador);
-        //void Notificar();
+        void suscribir(IObservadorActualizacionVisitantes observador);
+        void quitar(IObservadorActualizacionVisitantes observador);
+        void Notificar();
     }
 }

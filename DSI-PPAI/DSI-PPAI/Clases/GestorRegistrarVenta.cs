@@ -24,7 +24,6 @@ namespace DSI_PPAI.Clases
         Sesion sesion = new Sesion();
         Empleado empleado = new Empleado();
         Sede sede = new Sede();
-        private List<IObservadorActualizacionVisitantes> _observador;
 
         #endregion
 
@@ -38,7 +37,7 @@ namespace DSI_PPAI.Clases
         }
 
         //Se obtiene el nombre de la sede a traves del legajo del empleado logueado
-        private string buscarSede() 
+        private string buscarSede()
         {
             return empleado.obtenerSedeDelEmpleado(Pp_legajo);
         }
@@ -118,6 +117,10 @@ namespace DSI_PPAI.Clases
 
         public int confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
         {
+            foreach (IObservadorActualizacionVisitantes pantalla in pantallas)
+            {
+                suscribir(pantalla);
+            }
             int nro_entrada = buscarUltimoNroEntrada();
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
             return nro_entrada;
@@ -154,6 +157,10 @@ namespace DSI_PPAI.Clases
 
         #region patron observer
 
+        //Observer
+        public List<IObservadorActualizacionVisitantes> pantallas;
+        public List<IObservadorActualizacionVisitantes> _observador;
+
         public void suscribir(IObservadorActualizacionVisitantes observador)
         {
             if (!_observador.Contains(observador))
@@ -166,7 +173,19 @@ namespace DSI_PPAI.Clases
             }
         }
 
-        public void notificar() { }
+        public void notificar()
+        {
+            foreach (IObservadorActualizacionVisitantes pantalla in _observador)
+            {
+                pantalla.actualizarCantVisitantes((contarEntradasDeReserva()+ contarEntradasVendidas()), validarLimiteVisitantes());
+            }
+
+            if (_observador.Count == 0)
+            {
+                MessageBox.Show($"No hay suscripciones");
+            }
+
+        }
 
         public void quitar(IObservadorActualizacionVisitantes observador)
         {
@@ -176,14 +195,9 @@ namespace DSI_PPAI.Clases
             }
             else
             {
-                throw new Exception($"Na existe una suscripción para este observador");
+                throw new Exception($"No existe una suscripción para este observador");
             }
         }
-
-
-
-
-
 
         #endregion
     }

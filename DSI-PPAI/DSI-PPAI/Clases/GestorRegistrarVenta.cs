@@ -12,6 +12,8 @@ namespace DSI_PPAI.Clases
 {
     class GestorRegistrarVenta
     {
+        #region atributos
+
         private string id_sede { get; set; }
         public string Pp_legajo { get; set; }
         public string nombre_usuario { get; set; }
@@ -22,7 +24,11 @@ namespace DSI_PPAI.Clases
         Sesion sesion = new Sesion();
         Empleado empleado = new Empleado();
         Sede sede = new Sede();
+        private List<IObservadorActualizacionVisitantes> _observador;
 
+        #endregion
+
+        #region metodos
         //Devuelve una tabla con todas las tarifas vigentes
         public DataTable RegistrarVenta()
         {
@@ -144,5 +150,42 @@ namespace DSI_PPAI.Clases
             impresor_entrada.New(tabla, guia, i);
 
         }
+        #endregion
+
+        #region patron observer
+
+        public void suscribir(IObservadorActualizacionVisitantes observador)
+        {
+            if (!_observador.Contains(observador))
+            {
+                _observador.Add(observador);
+            }
+            else
+            {
+                throw new Exception($"Ya existe una suscripción para este observador");
+            }
+        }
+
+        public void notificar() { }
+
+        public void quitar(IObservadorActualizacionVisitantes observador)
+        {
+            if (_observador.Contains(observador))
+            {
+                _observador.Remove(observador);
+            }
+            else
+            {
+                throw new Exception($"Na existe una suscripción para este observador");
+            }
+        }
+
+
+
+
+
+
+        #endregion
     }
+
 }

@@ -115,8 +115,10 @@ namespace DSI_PPAI.Clases
             return montoTotal;
         }
 
+        
         public int confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
         {
+            crearObservadores();
             foreach (IObservadorActualizacionVisitantes pantalla in pantallas)
             {
                 suscribir(pantalla);
@@ -125,6 +127,7 @@ namespace DSI_PPAI.Clases
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
             return nro_entrada;
         }
+
 
         private int buscarUltimoNroEntrada()
         {
@@ -153,13 +156,22 @@ namespace DSI_PPAI.Clases
             impresor_entrada.New(tabla, guia, i);
 
         }
+
+        public void actVisitantesEnPantallas()
+        {
+            notificar();
+
+        }
         #endregion
 
         #region patron observer
 
         //Observer
-        public List<IObservadorActualizacionVisitantes> pantallas;
-        public List<IObservadorActualizacionVisitantes> _observador;
+        List<IObservadorActualizacionVisitantes> pantallas = new List<IObservadorActualizacionVisitantes>();
+        List<IObservadorActualizacionVisitantes> _observador = new List<IObservadorActualizacionVisitantes>();
+        //public List<IObservadorActualizacionVisitantes> pantallas;
+        //public List<IObservadorActualizacionVisitantes> _observador;
+
 
         public void suscribir(IObservadorActualizacionVisitantes observador)
         {
@@ -167,10 +179,10 @@ namespace DSI_PPAI.Clases
             {
                 _observador.Add(observador);
             }
-            else
-            {
-                throw new Exception($"Ya existe una suscripción para este observador");
-            }
+            //else
+            //{
+            //    throw new Exception($"Ya existe una suscripción para este observador");
+            //}
         }
 
         public void notificar()
@@ -199,6 +211,28 @@ namespace DSI_PPAI.Clases
             }
         }
 
+        public void crearObservadores()
+        {
+            //aca hacemos la consulta sql para ver cuantas salas hay, y por lo tanto cuantas pantallasSalas
+            string sqlCantidadSalas = @"SELECT COUNT(*) " +
+                                        "FROM SEDE s " +
+                                        "JOIN PLANTAS_X_SEDE ps ON s.id_sede = ps.id_sede " +
+                                        "JOIN SALASXPLANTA spl ON ps.id_planta = spl.id_planta " +
+                                        "WHERE s.id_sede = " + id_sede ;
+
+            int cantidad_salas = int.Parse(_BD.EjecutarSelect(sqlCantidadSalas).Rows[0][0].ToString());
+
+            //creamos y agregamos las pantallas a un array de pantallas
+            for (int i = 0; i < cantidad_salas; i++)
+            {
+                PantallaSala pantalla_Sala = new PantallaSala();
+                pantallas.Add(pantalla_Sala);
+            }
+
+            PantallaEntrada pantallaEntrada = new PantallaEntrada();
+            pantallas.Add(pantallaEntrada);
+
+        }
         #endregion
     }
 

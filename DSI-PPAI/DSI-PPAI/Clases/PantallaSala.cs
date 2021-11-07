@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DSI_PPAI.Clases
 {
-    class PantallaSala
+    class PantallaSala : IObservadorActualizacionVisitantes
     {
+        public void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

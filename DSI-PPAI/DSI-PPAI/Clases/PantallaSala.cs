@@ -8,9 +8,10 @@ namespace DSI_PPAI.Clases
 {
     class PantallaSala : IObservadorActualizacionVisitantes
     {
+        public int cantVisitantes { get; set; }
+
         public void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
         {
-            throw new NotImplementedException();
         }
     }
 }

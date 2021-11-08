@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using DSI_PPAI.Clases;
+
 
 namespace DSI_PPAI.Forms
 {
-    public partial class Frm_Pantalla_Cantidad_Personas : Form
+    public partial class Frm_Pantalla_Cantidad_Personas : Form, IObservadorActualizacionVisitantes
     {
         public int total_actual { get; set; }
         public int cant_max { get; set; }
@@ -40,6 +42,14 @@ namespace DSI_PPAI.Forms
             reporte_entrada.LocalReport.SetParameters(parametro);
             reporte_entrada.RefreshReport();
             
+        }
+
+        public void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
+        {
+            this.total_actual = cantVisitantes;
+            this.cant_max = cantMaxVisitantesDeSede;
+
+            //throw new NotImplementedException();
         }
     }
 }

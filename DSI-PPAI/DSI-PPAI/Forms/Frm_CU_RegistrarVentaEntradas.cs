@@ -160,8 +160,8 @@ namespace DSI_PPAI.Forms
                 }
                 this.Close();
                 Frm_Pantalla_Cantidad_Personas pantalla = new Frm_Pantalla_Cantidad_Personas();
-                pantalla.total_actual = cant_max_y_total[1];
-                pantalla.cant_max = cant_max_y_total[0];
+                
+                pantalla.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
                 pantalla.ShowDialog();
             }
         }

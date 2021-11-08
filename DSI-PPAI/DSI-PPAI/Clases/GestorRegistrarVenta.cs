@@ -167,10 +167,10 @@ namespace DSI_PPAI.Clases
         #region patron observer
 
         //Observer
-        List<IObservadorActualizacionVisitantes> pantallas = new List<IObservadorActualizacionVisitantes>();
+        IObservadorActualizacionVisitantes pantalla_entrada;
+        List<IObservadorActualizacionVisitantes> pantallas_sala = new List<IObservadorActualizacionVisitantes>();
         List<IObservadorActualizacionVisitantes> _observador = new List<IObservadorActualizacionVisitantes>();
-        //public List<IObservadorActualizacionVisitantes> pantallas;
-        //public List<IObservadorActualizacionVisitantes> _observador;
+
 
 
         public void suscribir(IObservadorActualizacionVisitantes observador)
@@ -179,10 +179,6 @@ namespace DSI_PPAI.Clases
             {
                 _observador.Add(observador);
             }
-            //else
-            //{
-            //    throw new Exception($"Ya existe una suscripción para este observador");
-            //}
         }
 
         public void notificar()
@@ -191,6 +187,7 @@ namespace DSI_PPAI.Clases
             {
                 pantalla.actualizarCantVisitantes((contarEntradasDeReserva()+ contarEntradasVendidas()), validarLimiteVisitantes());
             }
+
 
             if (_observador.Count == 0)
             {
@@ -226,14 +223,11 @@ namespace DSI_PPAI.Clases
             for (int i = 0; i < cantidad_salas; i++)
             {
                 Frm_Pantalla_Sala pantalla_Sala = new Frm_Pantalla_Sala();
-                pantallas.Add(pantalla_Sala);
+                pantallas_sala.Add(pantalla_Sala);
             }
 
             Frm_Pantalla_Entrada pantallaEntrada = new Frm_Pantalla_Entrada();
-            pantallas.Add(pantallaEntrada);
-
-            
-        
+            pantalla_entrada = pantallaEntrada;
         }
         #endregion
     }

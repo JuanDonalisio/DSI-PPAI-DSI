@@ -237,3 +237,4 @@ C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHT\Microsoft
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Cantidad_Personas.resources
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.cache
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.compiled
+C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache

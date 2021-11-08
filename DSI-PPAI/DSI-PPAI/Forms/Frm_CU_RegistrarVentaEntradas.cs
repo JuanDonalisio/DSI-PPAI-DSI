@@ -65,32 +65,41 @@ namespace DSI_PPAI.Forms
         {
             if (grid_tarifa_seleccionada.Rows.Count != 0)
             {
-                cant_max_y_total = gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text));
-                if (cant_max_y_total[1] <= cant_max_y_total[0])
+                if (txt_cantidad.Text == "")
                 {
-                    int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
-                    int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
-                    int cantEntradas = int.Parse(txt_cantidad.Text);
-                    int montoTotal = gestor.calcularTotalAPagar(precioEntrada,montoGuia,cantEntradas);
-                    grid_detalles.Rows.Clear();
-                    grid_detalles.Rows.Add();
-                    grid_detalles.Rows[0].Cells[0].Value = montoTotal;
-                    if(cb_guia.Checked == true)
-                    {
-                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
-                    }
-                    else
-                    {
-                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada;
-                    }
-                    
-                    grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
-
+                    MessageBox.Show("No se agrego la cantidad de entradas a generar!");
                 }
                 else
                 {
-                    MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+                    cant_max_y_total = gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text));
+                    if (cant_max_y_total[1] <= cant_max_y_total[0])
+                    {
+                        int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
+                        int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
+                        int cantEntradas = int.Parse(txt_cantidad.Text);
+                        int montoTotal = gestor.calcularTotalAPagar(precioEntrada, montoGuia, cantEntradas);
+                        grid_detalles.Rows.Clear();
+                        grid_detalles.Rows.Add();
+                        grid_detalles.Rows[0].Cells[0].Value = montoTotal;
+                        if (cb_guia.Checked == true)
+                        {
+                            grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                        }
+                        else
+                        {
+                            grid_detalles.Rows[0].Cells[1].Value = precioEntrada;
+                        }
+
+                        grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+                    }
                 }
+                
+
             }
             else
             {

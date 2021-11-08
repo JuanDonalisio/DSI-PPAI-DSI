@@ -159,10 +159,15 @@ namespace DSI_PPAI.Forms
                     gestor.imprimirEntradas(tabla, cb_guia.Checked, i);
                 }
                 this.Close();
-                Frm_Pantalla_Cantidad_Personas pantalla = new Frm_Pantalla_Cantidad_Personas();
-                
+
+
+                //habria que meter estos pasos de abajo en el metodo confirmarVenta?
+                Frm_Pantalla_Entrada pantalla = new Frm_Pantalla_Entrada();
+                Frm_Pantalla_Sala pantallaSala = new Frm_Pantalla_Sala();
                 pantalla.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
+                pantallaSala.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
                 pantalla.ShowDialog();
+                pantallaSala.ShowDialog();
             }
         }
 

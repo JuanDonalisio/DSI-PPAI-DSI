@@ -165,7 +165,6 @@ C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHS\Mi
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_RegistrarVentaEntradas.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_CU_ResponsableVentas.resources
-C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Cantidad_Personas.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Login.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Properties.Resources.resources
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.GenerateResource.cache
@@ -173,7 +172,6 @@ C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csproj.CopyComplete
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.exe
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.pdb
-C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.cache
 C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.compiled
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\SqlServerTypes\x64\msvcr120.dll
@@ -237,3 +235,6 @@ C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\bin\Debug\zh-CHT\Microsoft
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Cantidad_Personas.resources
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.cache
 C:\Users\Juanpa\Desktop\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\RdlCompile.compiled
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Entrada.resources
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI-PPAI.csprojAssemblyReference.cache
+C:\Users\Fede\Documents\GitHub\DSI-PPAI-G3\DSI-PPAI\DSI-PPAI\obj\Debug\DSI_PPAI.Forms.Frm_Pantalla_Sala.resources

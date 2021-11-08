@@ -225,13 +225,15 @@ namespace DSI_PPAI.Clases
             //creamos y agregamos las pantallas a un array de pantallas
             for (int i = 0; i < cantidad_salas; i++)
             {
-                PantallaSala pantalla_Sala = new PantallaSala();
+                Frm_Pantalla_Sala pantalla_Sala = new Frm_Pantalla_Sala();
                 pantallas.Add(pantalla_Sala);
             }
 
-            PantallaEntrada pantallaEntrada = new PantallaEntrada();
+            Frm_Pantalla_Entrada pantallaEntrada = new Frm_Pantalla_Entrada();
             pantallas.Add(pantallaEntrada);
 
+            
+        
         }
         #endregion
     }

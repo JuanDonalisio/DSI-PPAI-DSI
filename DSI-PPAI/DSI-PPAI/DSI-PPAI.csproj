@@ -113,11 +113,17 @@
     <Compile Include="Forms\Frm_CU_ResponsableVentas.Designer.cs">
       <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Frm_Pantalla_Cantidad_Personas.cs">
+    <Compile Include="Forms\Frm_Pantalla_Sala.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Frm_Pantalla_Cantidad_Personas.Designer.cs">
-      <DependentUpon>Frm_Pantalla_Cantidad_Personas.cs</DependentUpon>
+    <Compile Include="Forms\Frm_Pantalla_Sala.Designer.cs">
+      <DependentUpon>Frm_Pantalla_Sala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm_Pantalla_Entrada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Frm_Pantalla_Entrada.Designer.cs">
+      <DependentUpon>Frm_Pantalla_Entrada.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\login.cs">
       <SubType>Form</SubType>
@@ -135,8 +141,11 @@
     <EmbeddedResource Include="Forms\Frm_CU_ResponsableVentas.resx">
       <DependentUpon>Frm_CU_ResponsableVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Frm_Pantalla_Cantidad_Personas.resx">
-      <DependentUpon>Frm_Pantalla_Cantidad_Personas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Frm_Pantalla_Sala.resx">
+      <DependentUpon>Frm_Pantalla_Sala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Frm_Pantalla_Entrada.resx">
+      <DependentUpon>Frm_Pantalla_Entrada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\login.resx">
       <DependentUpon>login.cs</DependentUpon>

@@ -46,12 +46,14 @@ namespace DSI_PPAI.Forms
 
         public void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
         {
+            setCantVisitantes(cantVisitantes, cantMaxVisitantesDeSede);
+
+        }
+
+        public void setCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
+        {
             this.total_actual = cantVisitantes;
             this.cant_max = cantMaxVisitantesDeSede;
-
-            // FALTA METODO setCantVisitantes que NO SE COMO IMPLEMENTAR AAAAA
-
-            //throw new NotImplementedException();
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DSI_PPAI.Clases
 {
-    class GestorRegistrarVenta
+    class GestorRegistrarVenta : ISujeto
     {
         #region atributos
 

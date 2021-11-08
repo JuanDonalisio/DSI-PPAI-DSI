@@ -10,6 +10,6 @@ namespace DSI_PPAI.Clases
     {
         void suscribir(IObservadorActualizacionVisitantes observador);
         void quitar(IObservadorActualizacionVisitantes observador);
-        void Notificar();
+        void notificar();
     }
 }

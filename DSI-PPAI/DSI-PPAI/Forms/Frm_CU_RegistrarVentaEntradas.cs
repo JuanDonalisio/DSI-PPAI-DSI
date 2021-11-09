@@ -158,16 +158,17 @@ namespace DSI_PPAI.Forms
                     tabla.Rows.Add(nro_entrada, grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), int.Parse(grid_detalles.Rows[0].Cells[1].Value.ToString()));
                     gestor.imprimirEntradas(tabla, cb_guia.Checked, i);
                 }
+                gestor.actVisitantesEnPantallas();
                 this.Close();
 
 
                 //habria que meter estos pasos de abajo en el metodo confirmarVenta?
-                Frm_Pantalla_Entrada pantalla = new Frm_Pantalla_Entrada();
-                Frm_Pantalla_Sala pantallaSala = new Frm_Pantalla_Sala();
-                pantalla.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
-                pantallaSala.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
-                pantalla.ShowDialog();
-                pantallaSala.ShowDialog();
+                //PantallaEntrada pantalla = new PantallaEntrada();
+                //PantallaSala pantallaSala = new PantallaSala();
+                //pantalla.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
+                //pantallaSala.actualizarCantVisitantes(cant_max_y_total[1], cant_max_y_total[0]);
+                //pantalla.ShowDialog();
+                //pantallaSala.ShowDialog();
             }
         }
 

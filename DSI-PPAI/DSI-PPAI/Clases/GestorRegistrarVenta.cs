@@ -118,6 +118,14 @@ namespace DSI_PPAI.Clases
         
         public int confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
         {
+            
+            int nro_entrada = buscarUltimoNroEntrada();
+            generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
+            return nro_entrada;
+        }
+
+        public void actVisitantesEnPantallas()
+        {
             recuperarObservadores();
             suscribir(pantalla_entrada);
             foreach (IObservadorActualizacionVisitantes pantalla in pantallas_sala)
@@ -125,9 +133,6 @@ namespace DSI_PPAI.Clases
                 suscribir(pantalla);
             }
             notificar();
-            int nro_entrada = buscarUltimoNroEntrada();
-            generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
-            return nro_entrada;
         }
 
 
@@ -159,11 +164,7 @@ namespace DSI_PPAI.Clases
 
         }
 
-        public void actVisitantesEnPantallas()
-        {
-            notificar();
-
-        }
+        
         #endregion
 
         #region patron observer
@@ -223,11 +224,11 @@ namespace DSI_PPAI.Clases
             int cantidad_salas = int.Parse(_BD.EjecutarSelect(sqlCantidadSalas).Rows[0][0].ToString());
 
             //creamos y agregamos las pantallas a un array de pantallas
-            Frm_Pantalla_Entrada pantallaEntrada = new Frm_Pantalla_Entrada();
+            PantallaEntrada pantallaEntrada = new PantallaEntrada();
             pantalla_entrada = pantallaEntrada;
             for (int i = 0; i < cantidad_salas; i++)
             {
-                Frm_Pantalla_Sala pantalla_Sala = new Frm_Pantalla_Sala();
+                PantallaSala pantalla_Sala = new PantallaSala();
                 pantallas_sala.Add(pantalla_Sala);
             }
         }

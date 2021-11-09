@@ -14,7 +14,7 @@ using DSI_PPAI.Clases;
 
 namespace DSI_PPAI.Forms
 {
-    public partial class Frm_Pantalla_Sala : Form, IObservadorActualizacionVisitantes
+    public partial class Frm_Pantalla_Sala : Form
     {
         public int total_actual { get; set; }
         public int cant_max { get; set; }
@@ -27,6 +27,12 @@ namespace DSI_PPAI.Forms
         {
             CargarReporte();
             this.reporte_entrada.RefreshReport();
+        }
+
+        public void setDatos(int cantVisitantes, int cantMaxVisitantesDeSede)
+        {
+            total_actual = cantVisitantes;
+            cant_max = cantMaxVisitantesDeSede;
         }
 
         private void CargarReporte()
@@ -42,18 +48,6 @@ namespace DSI_PPAI.Forms
             reporte_entrada.LocalReport.SetParameters(parametro);
             reporte_entrada.RefreshReport();
             
-        }
-
-        public void actualizarCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
-        {
-            setCantVisitantes(cantVisitantes, cantMaxVisitantesDeSede);
-
-        }
-
-        public void setCantVisitantes(int cantVisitantes, int cantMaxVisitantesDeSede)
-        {
-            this.total_actual = cantVisitantes;
-            this.cant_max = cantMaxVisitantesDeSede;
         }
     }
 }

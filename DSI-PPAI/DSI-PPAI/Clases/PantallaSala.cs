@@ -17,6 +17,7 @@ namespace DSI_PPAI.Clases
             setCantVisitantes(cantVisitantes);
             setCantMaxVisitantesDeSede(cantMaxVisitantesDeSede);
             Frm_Pantalla_Sala frm_sala = new Frm_Pantalla_Sala();
+            frm_sala.setDatos(cantVisitantes, cantMaxVisitantesDeSede);
             frm_sala.ShowDialog();
 
         }

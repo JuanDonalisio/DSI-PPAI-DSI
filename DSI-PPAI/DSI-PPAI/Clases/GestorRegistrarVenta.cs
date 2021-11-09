@@ -28,6 +28,26 @@ namespace DSI_PPAI.Clases
         #endregion
 
         #region metodos
+        public void recuperarObservadores()
+        {
+            //aca hacemos la consulta sql para ver cuantas salas hay, y por lo tanto cuantas pantallasSalas
+            string sqlCantidadSalas = @"SELECT COUNT(*) " +
+                                        "FROM SEDE s " +
+                                        "JOIN PLANTAS_X_SEDE ps ON s.id_sede = ps.id_sede " +
+                                        "JOIN SALASXPLANTA spl ON ps.id_planta = spl.id_planta " +
+                                        "WHERE s.id_sede = " + id_sede;
+
+            int cantidad_salas = int.Parse(_BD.EjecutarSelect(sqlCantidadSalas).Rows[0][0].ToString());
+
+            //creamos y agregamos las pantallas a un array de pantallas
+            PantallaEntrada pantallaEntrada = new PantallaEntrada();
+            pantalla_entrada = pantallaEntrada;
+            for (int i = 0; i < cantidad_salas; i++)
+            {
+                PantallaSala pantalla_Sala = new PantallaSala();
+                pantallas_sala.Add(pantalla_Sala);
+            }
+        }
         //Devuelve una tabla con todas las tarifas vigentes
         public DataTable RegistrarVenta()
         {
@@ -111,8 +131,10 @@ namespace DSI_PPAI.Clases
         }
 
         public int calcularTotalAPagar(int precioEntrada, int montoGuia, int cantidadEntradas) {
-            int montoTotal = (precioEntrada + montoGuia) * cantidadEntradas;
-            return montoTotal;
+             int montoTotal = (precioEntrada + montoGuia) * cantidadEntradas;
+             return montoTotal;
+          
+            
         }
 
         
@@ -212,26 +234,7 @@ namespace DSI_PPAI.Clases
             }
         }
 
-        public void recuperarObservadores()
-        {
-            //aca hacemos la consulta sql para ver cuantas salas hay, y por lo tanto cuantas pantallasSalas
-            string sqlCantidadSalas = @"SELECT COUNT(*) " +
-                                        "FROM SEDE s " +
-                                        "JOIN PLANTAS_X_SEDE ps ON s.id_sede = ps.id_sede " +
-                                        "JOIN SALASXPLANTA spl ON ps.id_planta = spl.id_planta " +
-                                        "WHERE s.id_sede = " + id_sede ;
-
-            int cantidad_salas = int.Parse(_BD.EjecutarSelect(sqlCantidadSalas).Rows[0][0].ToString());
-
-            //creamos y agregamos las pantallas a un array de pantallas
-            PantallaEntrada pantallaEntrada = new PantallaEntrada();
-            pantalla_entrada = pantallaEntrada;
-            for (int i = 0; i < cantidad_salas; i++)
-            {
-                PantallaSala pantalla_Sala = new PantallaSala();
-                pantallas_sala.Add(pantalla_Sala);
-            }
-        }
+        
         #endregion
     }
 

@@ -65,32 +65,45 @@ namespace DSI_PPAI.Forms
         {
             if (grid_tarifa_seleccionada.Rows.Count != 0)
             {
-                cant_max_y_total = gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text));
-                if (cant_max_y_total[1] <= cant_max_y_total[0])
+                if (txt_cantidad.Text != "")
                 {
-                    int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
-                    int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
-                    int cantEntradas = int.Parse(txt_cantidad.Text);
-                    int montoTotal = gestor.calcularTotalAPagar(precioEntrada,montoGuia,cantEntradas);
-                    grid_detalles.Rows.Clear();
-                    grid_detalles.Rows.Add();
-                    grid_detalles.Rows[0].Cells[0].Value = montoTotal;
-                    if(cb_guia.Checked == true)
+                    cant_max_y_total = gestor.tomarCantidadDeEntradas(int.Parse(txt_cantidad.Text));
+                    if (cant_max_y_total[1] <= cant_max_y_total[0])
                     {
-                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                        int montoTotal = 0;
+                        int montoGuia = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[3].Value.ToString());
+                        int precioEntrada = int.Parse(grid_tarifa_seleccionada.Rows[0].Cells[2].Value.ToString());
+                        int cantEntradas = int.Parse(txt_cantidad.Text);
+                        grid_detalles.Rows.Clear();
+                        grid_detalles.Rows.Add();
+                        
+                        if (cb_guia.Checked == true)
+                        {
+                            montoTotal = gestor.calcularTotalAPagar(precioEntrada, montoGuia, cantEntradas);
+                            grid_detalles.Rows[0].Cells[1].Value = precioEntrada + montoGuia;
+                            grid_detalles.Rows[0].Cells[0].Value = montoTotal;
+
+                        }
+                        else
+                        {
+                            montoTotal = gestor.calcularTotalAPagar(precioEntrada, 0, cantEntradas);
+                            grid_detalles.Rows[0].Cells[1].Value = precioEntrada;
+                            grid_detalles.Rows[0].Cells[0].Value = montoTotal;
+                        }
+
+                        grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
+
                     }
                     else
                     {
-                        grid_detalles.Rows[0].Cells[1].Value = precioEntrada;
+                        MessageBox.Show("Excede el número de visitantes máximo de la sede!");
                     }
-                    
-                    grid_detalles.Rows[0].Cells[2].Value = cantEntradas;
-
                 }
                 else
                 {
-                    MessageBox.Show("Excede el numero de visitantes maximo de la sede!");
+                    MessageBox.Show("No ingresó ningún número de entradas");
                 }
+                
             }
             else
             {
@@ -158,6 +171,7 @@ namespace DSI_PPAI.Forms
                     tabla.Rows.Add(nro_entrada, grid_tarifa_seleccionada.Rows[0].Cells[0].Value.ToString(), grid_tarifa_seleccionada.Rows[0].Cells[1].Value.ToString(), int.Parse(grid_detalles.Rows[0].Cells[1].Value.ToString()));
                     gestor.imprimirEntradas(tabla, cb_guia.Checked, i);
                 }
+                //gestor.recuperarObservadores();
                 gestor.actVisitantesEnPantallas();
                 this.Close();
 

@@ -118,11 +118,13 @@ namespace DSI_PPAI.Clases
         
         public int confirmarVenta(string tipo_entrada, string tipo_visita, string monto)
         {
-            crearObservadores();
-            foreach (IObservadorActualizacionVisitantes pantalla in pantallas)
+            recuperarObservadores();
+            suscribir(pantalla_entrada);
+            foreach (IObservadorActualizacionVisitantes pantalla in pantallas_sala)
             {
                 suscribir(pantalla);
             }
+            notificar();
             int nro_entrada = buscarUltimoNroEntrada();
             generarEntradas(nro_entrada.ToString(), tipo_entrada, tipo_visita, monto);
             return nro_entrada;
@@ -183,11 +185,12 @@ namespace DSI_PPAI.Clases
 
         public void notificar()
         {
+            int cantVisitantes = contarEntradasDeReserva() + contarEntradasVendidas();
+            int cantMaxVisitantesDeSede = validarLimiteVisitantes();
             foreach (IObservadorActualizacionVisitantes pantalla in _observador)
             {
-                pantalla.actualizarCantVisitantes((contarEntradasDeReserva()+ contarEntradasVendidas()), validarLimiteVisitantes());
+                pantalla.actualizarCantVisitantes(cantVisitantes, cantMaxVisitantesDeSede);
             }
-
 
             if (_observador.Count == 0)
             {
@@ -208,7 +211,7 @@ namespace DSI_PPAI.Clases
             }
         }
 
-        public void crearObservadores()
+        public void recuperarObservadores()
         {
             //aca hacemos la consulta sql para ver cuantas salas hay, y por lo tanto cuantas pantallasSalas
             string sqlCantidadSalas = @"SELECT COUNT(*) " +
@@ -220,14 +223,13 @@ namespace DSI_PPAI.Clases
             int cantidad_salas = int.Parse(_BD.EjecutarSelect(sqlCantidadSalas).Rows[0][0].ToString());
 
             //creamos y agregamos las pantallas a un array de pantallas
+            Frm_Pantalla_Entrada pantallaEntrada = new Frm_Pantalla_Entrada();
+            pantalla_entrada = pantallaEntrada;
             for (int i = 0; i < cantidad_salas; i++)
             {
                 Frm_Pantalla_Sala pantalla_Sala = new Frm_Pantalla_Sala();
                 pantallas_sala.Add(pantalla_Sala);
             }
-
-            Frm_Pantalla_Entrada pantallaEntrada = new Frm_Pantalla_Entrada();
-            pantalla_entrada = pantallaEntrada;
         }
         #endregion
     }
